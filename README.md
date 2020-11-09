@@ -16,7 +16,6 @@ install the necessary library
     - pip install flask
     - pip install xlrd
     - pip install turtle
-    - pip install svgwrite
 
 ## How does the app work?
 
