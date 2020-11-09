@@ -19,3 +19,46 @@
     margin-bottom: 50px;
     text-align: center;
 }
+
+.function {
+    border : 2px grey solid ;
+    width: 95%;
+    height: 500px;
+    margin : auto;
+    margin-top: 10px;
+    display: flex;
+}
+
+/* Colonne / rectangle */
+.col {
+    border : 2px green solid ;
+    width: 30%;
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.tra {
+    border : 2px green solid ;
+    width: 30%;
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.fer {
+    border : 2px green solid ;
+    width: 30%;
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+/* Label  */
+
+.label {
+    border : 2px blue solid ;
+    display: flex;
+    margin: 35px;
+    
+}
