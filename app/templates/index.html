@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
+  <div id="app">
     <br/>
     <br/>
     <br/>
     <br/>
-
     <div class="drag-left">
         </br>
         <p> Element </p>
@@ -14,46 +13,31 @@
 
     <div class="container">
         <div class="container-diagram ">
-
+          <p>{{ diagramTitle }} </p>
           <div class="row">
-          
               <div class="function">
-
-              <div class="col">
-
-                <p> Col </p>
-
-                <div class="label">
-                  <p> LabelTxt </p>
+                <div class="col">
+                  <p> Col </p>
+                  <div class="label">
+                    <p> LabelTxt </p>
+                  </div>
                 </div>
-
+                <div class="tra">
+                  <p> Tra </p>
+                </div>
+                <div class="fer">
+                  <p> Fer </p>
+                </div>
               </div>
-
-              <div class="tra">
-                <p> Tra </p>
-              </div>
-
-              <div class="fer">
-                <p> Fer </p>
-              </div>
-
-            </div>
-
           </div>
-
         </div>
     </div>
- 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="static/js/bootstrap/bootstrap.min.js" charset="utf-8"></script>
+  </div> <!-- end div app -->
 
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+  <!-- Vue.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-    <!-- Theme JavaScript -->
-    <script src="static/js/freelancer-theme.min.js" charset="utf-8"></script>
+  <!-- main js for vue.js -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
-</body>
-
-</html>
 {% endblock %}
