@@ -5,9 +5,7 @@ import shutil
 import xlrd
 import turtle
 from turtle import *
-
 from random import randint
-
 import svgwrite
 
 

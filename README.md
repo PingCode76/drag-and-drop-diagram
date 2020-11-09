@@ -1,4 +1,4 @@
-# DiagrameExtractorFromExcel
+# Drag and drop system for diagram
 
 Generate a data with a diagram, created with drag and drop
 
