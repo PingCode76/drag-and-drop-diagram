@@ -4,8 +4,6 @@
   <div id="app">
     <br/>
     <br/>
-    <br/>
-    <br/>
     <div class="drag-left">
         </br>
         <button type="button" class="btn btn-danger">Export Data</button>
@@ -14,8 +12,8 @@
     </div>
 
     <div class="container">
-        <div class="container-diagram ">
-          <p>{{ diagramTitle }} </p>
+        <div class="container-diagram">
+          <p> {{ title }} {{ nb }} {{ (2 + 8) * 10 }} {{  returnTitle }}</p>
           <div class="row">
               <div class="function">
                 <div class="col">
@@ -35,11 +33,25 @@
         </div>
     </div>
   </div> <!-- end div app -->
-
   <!-- Vue.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        title : 'Data generator from drag and drop diagram',
+        nb : 55
+      },
+      computed: {
+        returnTitle() {
+          return this.title
+        }
+      }
+    })
+  </script>
+
   <!-- main js for vue.js -->
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <!--<script src="{ { url_for('static', filename='js/main.js') }}"></script>-->
 
 {% endblock %}
