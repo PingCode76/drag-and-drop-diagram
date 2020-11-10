@@ -8,6 +8,9 @@
     margin-top: 50px;
     margin-left: 35px;
     text-align: center;
+    border-bottom : 2px black solid ;
+    border-top : 2px black solid ;
+    border-left : 2px black solid ;
 }
 
 /* Container ( diagram )  */
