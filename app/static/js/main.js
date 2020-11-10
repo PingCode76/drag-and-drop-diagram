@@ -5,10 +5,8 @@ const app = new Vue({
     data: {
         diagramTitle: 'Title of function',
         costOfApples: 8
-    }
+    },
+    delimiters: ['[[', ']]'] // Use this in a template // useful not to confuse with the {{ }} syntax of flask
 })
 
-console.log("je suis exec ( main.js )");
-console.log(Vue);
-console.log(Vue.data);
-console.log(Vue.data.diagramTitle);
+console.log("main.js executed");
