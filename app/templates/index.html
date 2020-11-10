@@ -1,57 +1,60 @@
 {% extends 'base.html' %}
+
 {% block content %}
 
-  <div id="app">
-    <br/>
-    <br/>
-    <div class="drag-left">
-        </br>
-        <button type="button" class="btn btn-danger">Export Data</button>
-        </br></br>
-        <h4> Element </h4>
-    </div>
+    <div id="app">
+        <br/>
+        <br/>
 
-    <div class="container">
-        <div class="container-diagram">
-          <p> {{ title }} {{ nb }} {{ (2 + 8) * 10 }} {{  returnTitle }}</p>
-          <div class="row">
-              <div class="function">
-                <div class="col">
-                  <p> Col </p>
-                  <div class="label">
-                    <p> LabelTxt </p>
-                  </div>
-                </div>
-                <div class="tra">
-                  <p> Tra </p>
-                </div>
-                <div class="fer">
-                  <p> Fer </p>
-                </div>
-              </div>
-          </div>
+        <div class="drag-left">
+            </br>
+            <button type="button" class="btn btn-danger">Export Data</button>
+            </br></br>
+            <h4> Element </h4>
         </div>
-    </div>
-  </div> <!-- end div app -->
-  <!-- Vue.js CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-  <script>
-    const app = new Vue({
-      el: '#app',
-      data: {
-        title : 'Data generator from drag and drop diagram',
-        nb : 55
-      },
-      computed: {
-        returnTitle() {
-          return this.title
-        }
-      }
-    })
-  </script>
+        <div class="container">
+            <div class="container-diagram">
+                {{ diagramTitle }} Hello {{ costOfApples }}
 
-  <!-- main js for vue.js -->
-  <!--<script src="{ { url_for('static', filename='js/main.js') }}"></script>-->
+                    <div class="row">
 
+                        <div class="function">
+                        <div class="col">
+                            <p> Col </p>
+                            <div class="label">
+                                <p> LabelTxt </p>
+                            </div>
+                        </div>
+
+                        <div class="tra">
+                                <p> Tra </p>
+                        </div>
+
+                        <div class="fer">
+                            <p> Fer </p>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end div app -->
+
+{% endblock %}
+
+{% block javascripts %}
+    <!-- CDN Vue.Draggable -->
+    <!-- <script src="https//cdnjs.cloudflare.com/ajax/libs/vue/2.5.2/vue.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script> --> 
+
+    <!-- CDNJS :: Sortable (https://cdnjs.com/) -->
+    <!-- <script src="//cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script> -->
+    <!-- CDNJS :: Vue.Draggable (https://cdnjs.com/) -->
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.20.0/vuedraggable.umd.min.js"></script> -->
+
+    <!-- add main.js for vue.js-->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script> 
+    
 {% endblock %}
