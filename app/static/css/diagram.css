@@ -18,47 +18,39 @@
     margin-top: 50px;
     margin-bottom: 50px;
     text-align: center;
+    padding: 15px;
+    padding-right: 25px;
+    background-color: burlywood;
 }
 
 .function {
-    border : 2px grey solid ;
+    border : 3px grey solid ;
     width: 95%;
     height: 500px;
     margin : auto;
     margin-top: 10px;
     display: flex;
+    background-color: rgba(25,25,25,0.2);
 }
 
 /* Colonne / rectangle */
-.col {
-    border : 2px green solid ;
+.col, .tra, .fer{
+    border : 4px white ;
     width: 30%;
     margin-left: 2%;
     margin-top: 2%;
     margin-bottom: 2%;
-}
-
-.tra {
-    border : 2px green solid ;
-    width: 30%;
-    margin-left: 2%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-}
-
-.fer {
-    border : 2px green solid ;
-    width: 30%;
-    margin-left: 2%;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    background-color: rgba(240,240,240, 0.4);
 }
 
 /* Label  */
 
 .label {
-    border : 2px blue solid ;
+    border : 2px rgba(240,240,240, 0.7) ;
     display: flex;
     margin: 35px;
+    background-color:  rgba(240,240,240, 0.9);
+    color: black;
+    text-align : center;
     
 }
