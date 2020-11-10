@@ -4,6 +4,10 @@ Generate a data with a diagram, created with drag and drop
 
 ## Use the app 
 
+## Technologies
+    - Flask
+    - Vue.js
+    - Drag and Drop Component : https://github.com/SortableJS/Vue.Draggable 
 
 ## Generality
 
