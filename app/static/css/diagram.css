@@ -57,3 +57,18 @@
     text-align : center;
     
 }
+.label p{
+    color: black;
+    text-align : center;
+    padding: 12px;
+}
+
+/******** other ********/
+
+.hr-80{
+    width: 80%;
+    margin-left: 10%;
+    color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.5) ;
+    border: 1px solid rgba(0,0,0,0.5);
+}
