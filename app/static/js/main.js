@@ -4,7 +4,7 @@ const app = new Vue({
     el: '#app',
     data: {
         diagramTitle: 'Title of function',
-        costOfApples: 8
+        txtLabel: 'Mon texte',
     },
     delimiters: ['[[', ']]'] // Use this in a template // useful not to confuse with the {{ }} syntax of flask
 })
