@@ -33,10 +33,12 @@
                         <div class="col">
                             <p> Col </p>
                             <div class="label">
+
                                 <div class="row">
                                     <div class="col-lg-3 node-in node"> XX84</div>
                                     <div class="col-lg-6 label-center">
                                         <p> LabelTxt </p>
+                                        <input v-model="message">
                                     </div>
                                     <div class="col-lg-3 node-out node"> AA34</div>
                                 </div>
@@ -68,5 +70,7 @@
 
     <!-- add main.js for vue.js-->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script> 
+
+    <script src="{{ url_for('static', filename='js/draggable.js') }}"></script> 
     
 {% endblock %}
