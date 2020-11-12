@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 import datetime
+import logging as lg
 
 db = SQLAlchemy()
 # for install SQL postgres config
@@ -30,10 +31,10 @@ class BaseModel(db.Model):
         }
 
 
-class Station(BaseModel, db.Model):
-    """Model for the stations table"""
+class table1(BaseModel, db.Model):
+    """Model for the table1 table"""
     __tablename__ = 'table1'
 
     id = db.Column(db.Integer, primary_key = True)
-    n1 = db.Column(db.Float)
-    n2 = db.Column(db.Float)
+    var1 = db.Column(db.Float)
+    var2 = db.Column(db.Float)

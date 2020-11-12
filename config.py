@@ -3,7 +3,6 @@ import os
 
 class Config:
     ERROR_404_HELP = False
-
     SECRET_KEY = os.getenv('APP_SECRET', '&_(+gcl$^3$i&5e(+%c0hacx$chg9t$zs&(wghe9q*f&!+e*2m')
     TEST = "test"
 
