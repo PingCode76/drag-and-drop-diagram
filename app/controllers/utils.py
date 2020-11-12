@@ -7,9 +7,11 @@ import svgwrite
 import logging as lg
 
 from random import randint
-from models import db
+from models import *
 
 #print("util.py executed")
 def indexCalcul():
-    db.session.add(table1(2.50,250,1))
+    #db.create_all()
+    
+    db.session.add(Table(250,240))
     db.session.commit()
