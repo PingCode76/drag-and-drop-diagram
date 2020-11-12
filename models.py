@@ -31,10 +31,10 @@ class BaseModel(db.Model):
         }
 
 
-class table1(BaseModel, db.Model):
+class Table(BaseModel, db.Model):
     """Model for the table1 table"""
-    __tablename__ = 'table1'
+    __tablename__ = 'Table'
 
     id = db.Column(db.Integer, primary_key = True)
-    var1 = db.Column(db.Float)
-    var2 = db.Column(db.Float)
+    var1 = db.Column(db.Integer)
+    var2 = db.Column(db.Integer)
