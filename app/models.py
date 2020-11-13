@@ -1,11 +1,17 @@
 from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, url_for, request, jsonify
 import datetime
 import logging as lg
 
-db = SQLAlchemy()
+#from .views import app
 # for install SQL postgres config
 # use https://blog.theodo.com/2017/03/developping-a-flask-web-app-with-a-postresql-database-making-all-the-possible-errors/ 
 
+app = Flask(__name__)
+app.config.from_object('config')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
 
 class BaseModel(db.Model):
     """Base data model for all objects"""
@@ -31,9 +37,9 @@ class BaseModel(db.Model):
         }
 
 
-class Table(BaseModel, db.Model):
-    """Model for the table1 table"""
-    __tablename__ = 'Table'
+class Label(db.Model):
+    """Model for the Label table"""
+    __tablename__ = 'Label'
 
     id = db.Column(db.Integer, primary_key = True)
     var1 = db.Column(db.Integer)
