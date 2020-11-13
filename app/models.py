@@ -1,12 +1,17 @@
 from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, url_for, request, jsonify
 import datetime
 import logging as lg
 
-#from views import db
+#from .views import app
 # for install SQL postgres config
 # use https://blog.theodo.com/2017/03/developping-a-flask-web-app-with-a-postresql-database-making-all-the-possible-errors/ 
 
-db = SQLAlchemy()
+app = Flask(__name__)
+app.config.from_object('config')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
 
 class BaseModel(db.Model):
     """Base data model for all objects"""
