@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, request, jsonify
-from models import db
-from .controllers.utils import *
+#from .models import db
+from .utils import *
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -8,7 +8,7 @@ app.config.from_object('config')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-db.init_app(app)
+#db.init_app(app)
 
 @app.route('/')
 def index():

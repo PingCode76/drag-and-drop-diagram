@@ -8,7 +8,7 @@ import logging as lg
 
 from flask_sqlalchemy import SQLAlchemy
 from random import randint
-from models import Label
+from .models import Label
 #from views import db
 
 db = SQLAlchemy()
