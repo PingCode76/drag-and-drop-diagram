@@ -17,8 +17,8 @@ class BaseModel(db.Model):
     """Base data model for all objects"""
     __abstract__ = True
 
-    #def __init__(self, *args):
-        #super().__init__(*args)
+    def __init__(self, *args):
+        super().__init__(*args)
 
     def __repr__(self):
         """Define a base way to print models"""
