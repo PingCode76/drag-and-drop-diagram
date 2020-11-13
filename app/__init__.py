@@ -5,6 +5,8 @@ from .views import app
 #import models
 from models import db
 import models
+
+
 # Connect sqlalchemy to app
 models.db.init_app(app)
 
