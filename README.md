@@ -21,6 +21,17 @@ install the necessary library
     - pip install xlrd
     - pip install turtle
 
+    For Database ( PostreSQL ) 
+
+    - pip install psycopg2 Flask-SQLAlchemy Flask-Migrate
+    - pip install flask_script 
+
+## DataBase
+
+    - python manage.py db init
+    - python manage.py db migrate
+    - python manage.py db upgrade
+
 ## How does the app work?
 
 - views.py is the application routing file
