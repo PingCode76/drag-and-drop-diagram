@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "vue-easy-dnd": "^1.10.2",
-    "vuedraggable": "^2.24.3"
-  }
-}
