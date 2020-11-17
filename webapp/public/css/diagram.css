@@ -1,0 +1,101 @@
+/* Aside left */
+.home {
+    background-color: rgb(6, 143, 129);
+    padding-bottom : 50px;
+}
+
+.drag-left {
+    background-color: turquoise;
+    height: 700px;
+    width: 15%;
+    float: left;
+    margin-top: 50px;
+    margin-left: 35px;
+    text-align: center;
+    border-bottom : 2px black solid ;
+    border-top : 2px black solid ;
+    border-left : 2px black solid ;
+}
+
+/* Container ( diagram )  */
+
+.container-diagram {
+    border : 2px black solid ;
+    height : 700px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    padding: 15px;
+    padding-right: 25px;
+    background-color: burlywood;
+}
+
+.function {
+    border : 3px grey solid ;
+    width: 95%;
+    height: 500px;
+    margin : auto;
+    margin-top: 10px;
+    display: flex;
+    background-color: rgba(25,25,25,0.2);
+}
+
+/* Colonne / rectangle */
+.col, .tra, .fer{
+    border : 4px white ;
+    width: 30%;
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: rgba(240,240,240, 0.4);
+}
+
+/* Label  */
+
+.label {
+    border : 2px rgba(240,240,240, 0.7) ;
+    display: flex;
+    width: auto;
+    justify-content: center;
+    margin: 15px;
+    background-color:  rgba(158, 158, 158, 0.9);
+    color: black;
+    text-align : center;
+    border: 2px solid rgba(240,240,240, 0.4);
+    
+}
+.label p{
+    color: black;
+    text-align : center;
+    padding: 12px;
+}
+.label-center{
+    border: 1px solid ghostwhite;
+    background-color: ghostwhite;
+}
+.node{
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 15px;
+    /*background-color: seashell;*/
+    color: rgb(20,20,20);
+    font-size: 13px;
+    padding-top: 20px;
+}
+/*
+<div class="col-lg-2 node-in node"> XX84</div>
+<div class="col-lg-8 label-center">
+    <p> LabelTxt </p>
+</div>
+<div class="col-lg-2 node-out node"> AA34</div>
+*/
+
+/******** other ********/
+
+.hr-80{
+    width: 80%;
+    margin-left: 10%;
+    color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.5) ;
+    border: 1px solid rgba(0,0,0,0.5);
+}
