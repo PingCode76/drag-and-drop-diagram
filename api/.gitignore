@@ -1,0 +1,10 @@
+env/
+*.pyc
+__pycache__
+fbapp/static/*.jpg
+app.db
+geckodriver.log
+.cache/
+fbapp/
+/node_modules
+/node_modules/
