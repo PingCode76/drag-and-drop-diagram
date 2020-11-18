@@ -1,16 +1,17 @@
 from flask import Flask
 from flask_cors import CORS
 from apiFunction import addLabelAPI
+import models
 
 app = Flask(__name__)
 app.config.from_object('config')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 CORS(app)
+models.db.init_app(app)
 
 @app.route("/greeting")
 def greeting():
     return {"greeting": "Hello from Flask!"}
-
 
 @app.route("/addLabel")
 def addLabel():
