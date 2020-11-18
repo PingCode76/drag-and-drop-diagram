@@ -36,7 +36,6 @@
     height: 500px;
     margin : auto;
     margin-top: 10px;
-    display: flex;
     background-color: rgba(25,25,25,0.2);
 }
 
