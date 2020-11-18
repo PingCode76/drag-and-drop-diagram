@@ -30,13 +30,25 @@
             <!-- new -->
             <div class="group">
               <drop class="copy" @drop="onCopyDrop">
-                <span v-for="(n, index) in copied" :key="index">Copied {{n}};&nbsp;</span>
+                <span v-for="(n, index) in copied" :key="index">
+                  <transition-group name="list" tag="div">
+                    <drag v-for="n in numbers" :key="n" class="drag" :data="n" @cut="remove(n)">{{n}}</drag>
+                  </transition-group>
+                </span>
               </drop>
               <drop class="copy" @drop="onCopyDrop1">
-                <span v-for="(n, index1) in copied1" :key="index1">Copied {{n}};&nbsp;</span>
+                <span v-for="(n, index1) in copied1" :key="index1">
+                  <transition-group name="list" tag="div">
+                    <drag v-for="n in numbers" :key="n" class="drag" :data="n" @cut="remove(n)">{{n}}</drag>
+                  </transition-group>
+                </span>
               </drop>
               <drop class="copy" @drop="onCopyDrop2">
-                <span v-for="(n, index2) in copied2" :key="index2">Copied {{n}};&nbsp;</span>
+                <span v-for="(n, index2) in copied2" :key="index2">
+                  <transition-group name="list" tag="div">
+                    <drag v-for="n in numbers" :key="n" class="drag" :data="n" @cut="remove(n)">{{n}}</drag>
+                  </transition-group>
+                </span>
               </drop>
             </div>
             
@@ -84,9 +96,9 @@ import BaseComponent from '../components/BaseComponent.vue'
     data: function(){
         return {
             APImessageGreeting: '',
-            numbers: [1],
-            numbers1: [1],
-            numbers2: [1],
+            numbers: ["label"],
+            numbers1: ["label"],
+            numbers2: ["label"],
             copied: [],
             copied1: [],
             copied2: [],
