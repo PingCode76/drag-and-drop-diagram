@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
+from apiFunction import addLabelAPI
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -9,6 +10,11 @@ CORS(app)
 @app.route("/greeting")
 def greeting():
     return {"greeting": "Hello from Flask!"}
+
+
+@app.route("/addLabel")
+def addLabel():
+    return addLabelAPI()
 
 
 #def indexCalcul(): 
