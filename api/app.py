@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 from apiFunction import addLabelAPI
+from markupsafe import escape
 import models
 
 app = Flask(__name__)
@@ -11,17 +12,10 @@ models.db.init_app(app)
 
 @app.route("/greeting")
 def greeting():
-    return {"greeting": "Hello from Flask!"}
+    return {"greeting": "Hello from Flask API"}
 
-@app.route("/addLabel")
-def addLabel():
-    return addLabelAPI()
-
-
-#def indexCalcul(): 
-    #db.create_all()
-    #Label1 = Label(var1=20,var2=50)
-    #db.session.add(Label1)
-    #db.session.commit() 
-
+@app.route("/addLabel/<nb1>/<nb2>")
+def addLabel(nb1,nb2):
+    return addLabelAPI(escape(nb1),escape(nb2))
+    
 

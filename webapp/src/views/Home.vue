@@ -2,6 +2,7 @@
   <div class="home">
     <BaseComponent title="Application Template"/>
     <p> {{ title }} </p>
+    <p> {{ APImessageGreeting }}</p>
     <div class="drag-left">
       <button type="button" class="btn btn-danger">
         Export Data
@@ -56,6 +57,16 @@ import BaseComponent from '../components/BaseComponent.vue'
     name: 'Home',
     components: {
       BaseComponent
+    },
+    data: function(){
+        return {
+            APImessageGreeting: ''
+        }
+    },
+    created: async function(){
+        const gResponse = await fetch("http://localhost:5000/greeting");
+        const gObject = await gResponse.json();
+        this.APImessageGreeting = gObject.greeting;
     }
   }
 </script>
