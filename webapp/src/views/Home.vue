@@ -12,7 +12,7 @@
       <h7> add label </h7>
       <!-- label transition -->
       <transition-group name="list" tag="div">
-        <drag v-for="n in numbers" :key="n" class="drag" :data="n" @cut="remove(n)">{{n}}</drag>
+        <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
       </transition-group>
       <!-- end label transition -->
       <hr class="hr-80">
@@ -32,21 +32,21 @@
               <drop class="copy" @drop="onCopyDrop">
                 <span v-for="(n, index) in copied" :key="index">
                   <transition-group name="list" tag="div">
-                    <drag v-for="n in numbers" :key="n" class="drag" :data="n" @cut="remove(n)">{{n}}</drag>
+                    <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
                   </transition-group>
                 </span>
               </drop>
               <drop class="copy" @drop="onCopyDrop1">
                 <span v-for="(n, index1) in copied1" :key="index1">
                   <transition-group name="list" tag="div">
-                    <drag v-for="n in numbers" :key="n" class="drag" :data="n" @cut="remove(n)">{{n}}</drag>
+                    <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
                   </transition-group>
                 </span>
               </drop>
               <drop class="copy" @drop="onCopyDrop2">
                 <span v-for="(n, index2) in copied2" :key="index2">
                   <transition-group name="list" tag="div">
-                    <drag v-for="n in numbers" :key="n" class="drag" :data="n" @cut="remove(n)">{{n}}</drag>
+                    <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
                   </transition-group>
                 </span>
               </drop>
@@ -138,16 +138,17 @@ import BaseComponent from '../components/BaseComponent.vue'
 <style>
 
 /* item drag and drop */ 
-.drag {
-  width: 60px;
+.label {
+  width: 170px;
   height: 60px;
-  background-color: rgb(220, 220, 255);
+  background-color: green;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin: 10px 10px 0 10px;
   font-size: 20px;
   transition: all 0.5s;
+  margin-bottom : 10px ; 
 }
 
 .group {
@@ -157,7 +158,8 @@ import BaseComponent from '../components/BaseComponent.vue'
 .copy {
   margin: 20px 10px;
   border: 1px solid black;
-  height: 100px;
+  min-height: 100px;
+  height: auto;
   display: inline-block;
   position: relative;
   flex: 1;
@@ -173,7 +175,7 @@ import BaseComponent from '../components/BaseComponent.vue'
 }
 
 .copy::before {
-  content: "COPY";
+  content: "add label"; 
   position: absolute;
   left: 50%;
   top: 50%;

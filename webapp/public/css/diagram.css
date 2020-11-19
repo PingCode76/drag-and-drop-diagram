@@ -33,7 +33,8 @@
 .function {
     border : 3px grey solid ;
     width: 95%;
-    height: 500px;
+    min-height: 150px;
+    height: auto;
     margin : auto;
     margin-top: 10px;
     background-color: rgba(25,25,25,0.2);
