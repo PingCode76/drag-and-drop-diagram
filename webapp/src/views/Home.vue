@@ -10,72 +10,104 @@
       <h4> Element </h4>
       <hr class="hr-80">
       <h7> add label </h7>
+
       <!-- label transition -->
       <transition-group name="list" tag="div">
         <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
       </transition-group>
       <!-- end label transition -->
+
       <hr class="hr-80">
       <h7> add nodes </h7>
       <hr class="hr-80">
       <h7> add function </h7>
+
+      <!-- label transition -->
+      <transition-group name="list" tag="div">
+        <drag v-for="f in functions" :key="f" class="functions" :data="f" @cut="remove(f)">{{f}}</drag>
+      </transition-group>
+      <!-- end label transition -->
+
       <hr class="hr-80">
     </div>
     <div class="container">
       <div class="container-diagram">
         <h4> {{ title }} </h4>
+
+        <!-- base function/label -->
         <div class="row">
           <div class="function">
-
-            <!-- new -->
             <div class="group">
-              <drop class="copy" @drop="onCopyDrop">
+              <drop class="copyLabel" @drop="onCopyDropLabel">
                 <span v-for="(n, index) in copied" :key="index">
                   <transition-group name="list" tag="div">
                     <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
                   </transition-group>
                 </span>
               </drop>
-              <drop class="copy" @drop="onCopyDrop1">
+              <drop class="copyLabel" @drop="onCopyDropLabel1">
                 <span v-for="(n, index1) in copied1" :key="index1">
                   <transition-group name="list" tag="div">
                     <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
                   </transition-group>
                 </span>
               </drop>
-              <drop class="copy" @drop="onCopyDrop2">
+              <drop class="copyLabel" @drop="onCopyDropLabel2">
                 <span v-for="(n, index2) in copied2" :key="index2">
                   <transition-group name="list" tag="div">
                     <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
                   </transition-group>
                 </span>
               </drop>
-            </div>
-            
-            <!-- end new -->
-            <!-- 
-            <div class="col">
-              <p> Col </p>
-              <div class="label">
-                <div class="row">
-                  <div class="col-lg-3 node-in node"> XX84</div>
-                  <div class="col-lg-6 label-center">
-                    <p> LabelTxt </p>
-                  </div>
-                  <div class="col-lg-3 node-out node"> AA34</div>
-                </div>
-              </div>
-            </div>
-            <div class="tra">
-              <p> Tra </p>
-            </div>
-            <div class="fer">
-              <p> Fer </p>
-            </div>
-            -->
-
+            </div> <!-- end group -->
           </div> <!-- end function-->
         </div> <!-- end row -->
+        <!-- end base function/label -->
+
+        <!-- function drag label in function -->
+        <drop class="copyFunction" @drop="onCopyDropFunctions">
+          <span v-for="(f, function1) in copiedFunction" :key="function1">
+            <transition-group name="list" tag="div">
+              <!-- drag insert -->
+              <drag v-for="f in functions" :key="f" class="function" :data="f" @cut="remove(f)">{{f}}
+              
+                <div class="row">
+                  <div class="function">
+                    <!-- new -->
+                    <div class="group">
+                      <drop class="copyLabel" @drop="onCopyDropLabel">
+                        <span v-for="(n, index) in copied" :key="index">
+                          <transition-group name="list" tag="div">
+                            <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
+                          </transition-group>
+                        </span>
+                      </drop>
+                      <drop class="copyLabel" @drop="onCopyDropLabel1">
+                        <span v-for="(n, index1) in copied1" :key="index1">
+                          <transition-group name="list" tag="div">
+                            <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
+                          </transition-group>
+                        </span>
+                      </drop>
+                      <drop class="copyLabel" @drop="onCopyDropLabel2">
+                        <span v-for="(n, index2) in copied2" :key="index2">
+                          <transition-group name="list" tag="div">
+                            <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
+                          </transition-group>
+                        </span>
+                      </drop>
+                    </div>
+                  </div> <!-- end function-->
+                </div> <!-- end row -->
+
+              </drag>  
+              <!-- drag insert end -->
+
+            </transition-group>
+          </span>
+        </drop>
+        <!-- end function drag label in function -->
+        
       </div> <!-- end container diagram-->
     </div> <!-- end container -->
   </div> <!-- end home-->
@@ -96,24 +128,29 @@ import BaseComponent from '../components/BaseComponent.vue'
     data: function(){
         return {
             APImessageGreeting: '',
-            numbers: ["label"],
+            numbers: ["label"], // label numer 
             numbers1: ["label"],
             numbers2: ["label"],
-            copied: [],
+            copied: [], // label copied number 
             copied1: [],
             copied2: [],
-            cut: []
+            cut: [],
+            functions: ["function"], // function
+            copiedFunction: [], // function 
         }
     },
     methods: {
-      onCopyDrop(e) {
+      onCopyDropLabel(e) {
         this.copied.push(e.data);
       },
-      onCopyDrop1(e) {
+      onCopyDropLabel1(e) {
         this.copied1.push(e.data);
       },
-      onCopyDrop2(e) {
+      onCopyDropLabel2(e) {
         this.copied2.push(e.data);
+      },
+      onCopyDropFunctions(e) {
+        this.copiedFunction.push(e.data);
       },
       remove(n) {
         let index = this.numbers.indexOf(n);
@@ -124,6 +161,9 @@ import BaseComponent from '../components/BaseComponent.vue'
 
         let index2 = this.numbers2.indexOf(n);
         this.numbers2.splice(index2, 1);
+
+        let function1 = this.functions.indexOf(f);
+        this.functions.splice(function1, 1)
       }
     },
     created: async function(){
@@ -155,7 +195,7 @@ import BaseComponent from '../components/BaseComponent.vue'
   display: flex;
 }
 
-.copy {
+.copyLabel {
   margin: 20px 10px;
   border: 1px solid black;
   min-height: 100px;
@@ -163,6 +203,43 @@ import BaseComponent from '../components/BaseComponent.vue'
   display: inline-block;
   position: relative;
   flex: 1;
+}
+/* function */
+.functions {
+  width: 170px;
+  height: 60px;
+  background-color: blue;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 10px 0 10px;
+  font-size: 20px;
+  transition: all 0.5s;
+  margin-bottom : 10px ; 
+}
+
+.copyFunction {
+  width: 100%;
+  margin: 20px 10px;
+  border: 1px solid black;
+  min-height: 100px;
+  height: auto;
+  display: inline-block;
+  position: relative;
+  flex: 1;
+  border : 3px grey solid ;
+  background-color: rgba(25,25,25,0.2);
+}
+
+.copyFunction::before {
+  content: "add function"; 
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .cut {
@@ -174,7 +251,7 @@ import BaseComponent from '../components/BaseComponent.vue'
   flex: 1;
 }
 
-.copy::before {
+.copyLabel::before {
   content: "add label"; 
   position: absolute;
   left: 50%;
