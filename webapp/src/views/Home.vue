@@ -129,4 +129,37 @@ import Function from '../components/Function.vue'
 .list-leave-active {
   position: absolute;
 }
+
+/* structure */
+.drag-left {
+    background-color: turquoise;
+    height: 500px; /* 100% ? */ 
+    width: 15%;
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    float: left;
+    margin-top: 350px;
+    margin-bottom: 200px;
+    margin-left: 35px;
+    text-align: center;
+    border-bottom : 2px black solid ;
+    border-top : 2px black solid ;
+    border-left : 2px black solid ;
+    vertical-align: center;
+}
+
+/* Container ( diagram )  */
+
+.container-diagram {
+    border : 2px black solid ;
+    min-height : 700px;
+    height: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    padding: 15px;
+    padding-right: 25px;
+    background-color: burlywood;
+}
 </style>
