@@ -12,7 +12,8 @@
 
       <h4> Element </h4>
       <hr class="hr-80">
-    
+      <!-- -------------------- Export Drag  --------------------   -->
+
       <!-- label transition -->
       <h7> add label </h7>
       <transition-group name="list" tag="div">
@@ -33,6 +34,8 @@
       <h7> add nodes </h7>
       <hr class="hr-80">
       <!-- end node transition -->
+
+      <!-- -------------------- End Export Drag  --------------------   -->
       
     </div>
     <div class="container">
@@ -105,54 +108,7 @@ import Function from '../components/Function.vue'
   margin-bottom : 10px ; 
 }
 
-/* other */
-.copyLabel::before {
-  content: "add label"; 
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  color: rgba(0, 0, 0, 0.4);
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.group {
-  display: flex;
-}
-
-.copyLabel {
-  margin: 20px 10px;
-  border: 1px solid black;
-  min-height: 100px;
-  height: auto;
-  display: inline-block;
-  position: relative;
-  flex: 1;
-  background-color: green;
-}
-
-
-.cut {
-  margin: 20px 10px;
-  border: 1px solid black;
-  height: 100px;
-  display: inline-block;
-  position: relative;
-  flex: 1;
-}
-
-.cut::before {
-  content: "CUT";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  color: rgba(0, 0, 0, 0.4);
-  font-size: 25px;
-  font-weight: bold;
-}
-
+/* other */ 
 .drop-allowed {
   background-color: rgba(0, 255, 0, 0.2);
 }
