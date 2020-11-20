@@ -1,7 +1,14 @@
 <template>
   <div class="about">
     <BaseComponent title="Application Template"/>
-    <h1>This is an about page</h1>
+    <h5> Drag and Drop Diagram </h5>
+
+    <ul>
+      <li> step 1  : Drag function in blue space</li>
+      <li> Step 2  : Drag Label in green space</li>
+      <li> step 3  : Drag node in green space ( in label )</li>
+      <li> export Data with button</li>
+    </ul>
   </div>
 </template>
 

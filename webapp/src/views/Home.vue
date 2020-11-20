@@ -34,46 +34,18 @@
       <div class="container-diagram">
         <h4> {{ title }} </h4>
 
-        <!-- base function/label -->
-        <div class="row">
-          <div class="function">
-            <div class="group">
-              <drop class="copyLabel" @drop="onCopyDropLabel">
-                <span v-for="(n, index) in copied" :key="index">
-                  <transition-group name="list" tag="div">
-                    <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
-                  </transition-group>
-                </span>
-              </drop>
-              <drop class="copyLabel" @drop="onCopyDropLabel1">
-                <span v-for="(n, index1) in copied1" :key="index1">
-                  <transition-group name="list" tag="div">
-                    <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
-                  </transition-group>
-                </span>
-              </drop>
-              <drop class="copyLabel" @drop="onCopyDropLabel2">
-                <span v-for="(n, index2) in copied2" :key="index2">
-                  <transition-group name="list" tag="div">
-                    <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
-                  </transition-group>
-                </span>
-              </drop>
-            </div> <!-- end group -->
-          </div> <!-- end function-->
-        </div> <!-- end row -->
-        <!-- end base function/label -->
-
+      
         <!-- function drag label in function -->
         <drop class="copyFunction" @drop="onCopyDropFunctions">
+
           <span v-for="(f, function1) in copiedFunction" :key="function1">
+          
             <transition-group name="list" tag="div">
               <!-- drag insert -->
               <drag v-for="f in functions" :key="f" class="function" :data="f" @cut="remove(f)">{{f}}
               
                 <div class="row">
                   <div class="function">
-                    <!-- new -->
                     <div class="group">
                       <drop class="copyLabel" @drop="onCopyDropLabel">
                         <span v-for="(n, index) in copied" :key="index">
@@ -174,9 +146,7 @@ import BaseComponent from '../components/BaseComponent.vue'
   }
 </script>
 
-
 <style>
-
 /* item drag and drop */ 
 .label {
   width: 170px;
@@ -191,6 +161,17 @@ import BaseComponent from '../components/BaseComponent.vue'
   margin-bottom : 10px ; 
 }
 
+.copyLabel::before {
+  content: "add label"; 
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 25px;
+  font-weight: bold;
+}
+
 .group {
   display: flex;
 }
@@ -203,8 +184,9 @@ import BaseComponent from '../components/BaseComponent.vue'
   display: inline-block;
   position: relative;
   flex: 1;
+  background-color: green;
 }
-/* function */
+/* function element copied in nav */
 .functions {
   width: 170px;
   height: 60px;
@@ -228,7 +210,7 @@ import BaseComponent from '../components/BaseComponent.vue'
   position: relative;
   flex: 1;
   border : 3px grey solid ;
-  background-color: rgba(25,25,25,0.2);
+  /* background-color: rgba(25,25,25,0.2); */
 }
 
 .copyFunction::before {
@@ -242,6 +224,17 @@ import BaseComponent from '../components/BaseComponent.vue'
   font-weight: bold;
 }
 
+/* div function */ 
+.function {
+    width: 95%;
+    min-height: 150px;
+    height: auto;
+    margin : auto;
+    margin-top: 10px;
+    margin-bottom: 45px ; 
+    background-color : blue; 
+}
+
 .cut {
   margin: 20px 10px;
   border: 1px solid black;
@@ -249,17 +242,6 @@ import BaseComponent from '../components/BaseComponent.vue'
   display: inline-block;
   position: relative;
   flex: 1;
-}
-
-.copyLabel::before {
-  content: "add label"; 
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  color: rgba(0, 0, 0, 0.4);
-  font-size: 25px;
-  font-weight: bold;
 }
 
 .cut::before {
