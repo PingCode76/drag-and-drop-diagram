@@ -97,7 +97,7 @@ import Label from '../components/Label.vue'
     margin : auto;
     margin-top: 10px;
     margin-bottom: 45px ; 
-    background-color : blue; 
+    background-color: rgb(6, 143, 129); 
 }
 
 </style>
