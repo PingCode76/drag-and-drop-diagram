@@ -1,46 +1,18 @@
 <template>
     <!-- function drag label in function -->
     <drop class="copyFunction" @drop="onCopyDropFunctions">
-
-        <span v-for="(f, function1) in copiedFunction" :key="function1">
-        
+      <span v-for="(f, function1) in copiedFunction" :key="function1">
         <transition-group name="list" tag="div">
-            <!-- drag insert -->
-            <drag v-for="f in functions" :key="f" class="function" :data="f" @cut="remove(f)">{{f}}
-            
-                <div class="row">
-                    <div class="function">
-                        <div class="group">
-                            <drop class="copyLabel" @drop="onCopyDropLabel">
-                                <span v-for="(n, index) in copied" :key="index">
-                                    <transition-group name="list" tag="div">
-                                        <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
-                                    </transition-group>
-                                </span>
-                            </drop>
-                            <drop class="copyLabel" @drop="onCopyDropLabel1">
-                                <span v-for="(n, index1) in copied1" :key="index1">
-                                    <transition-group name="list" tag="div">
-                                        <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
-                                    </transition-group>
-                                </span>
-                            </drop>
-                            <drop class="copyLabel" @drop="onCopyDropLabel2">
-                                <span v-for="(n, index2) in copied2" :key="index2">
-                                    <transition-group name="list" tag="div">
-                                        <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
-                                    </transition-group>
-                                </span>
-                            </drop>
-                        </div>
-                    </div> <!-- end function-->
-                </div> <!-- end row -->
-
-            </drag>  
-            <!-- drag insert end -->
-
+          <drag v-for="f in functions" :key="f" class="function" :data="f" @cut="remove(f)">{{f}}
+            <div class="row">
+                <div class="function">
+                  <!-- label Component -->
+                  <Label></Label>
+                </div> <!-- end function-->
+            </div> <!-- end row -->
+          </drag>  
         </transition-group>
-        </span>
+      </span>
     </drop>
     <!-- end function drag label in function -->
 </template>
@@ -48,34 +20,24 @@
 <script>
   // @ is an alias to /src
 import { Drag, Drop, DropMask } from "vue-easy-dnd";
+import Label from '../components/Label.vue'
 
   export default {
     name: 'Function',
     components: {
       Drag,
       Drop,
+      Label,
     },
     data: function(){
         return {
             APImessageGreeting: '',
             numbers: ["label"], // label uniq drag !important
             functions: ["function"], // function uniq drag !important
-            copied: [], // label copied number 
-            copied1: [],
-            copied2: [],
             copiedFunction: [], // function 
         }
     },
     methods: {
-      onCopyDropLabel(e) {
-        this.copied.push(e.data);
-      },
-      onCopyDropLabel1(e) {
-        this.copied1.push(e.data);
-      },
-      onCopyDropLabel2(e) {
-        this.copied2.push(e.data);
-      },
       onCopyDropFunctions(e) {
         this.copiedFunction.push(e.data);
       },
