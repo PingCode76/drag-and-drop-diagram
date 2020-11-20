@@ -84,7 +84,7 @@ import Function from '../components/Function.vue'
 .label {
   width: 170px;
   height: 60px;
-  background-color: green;
+  background-color: white;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -98,7 +98,7 @@ import Function from '../components/Function.vue'
 .functions {
   width: 170px;
   height: 60px;
-  background-color: blue;
+  background-color: rgb(6, 143, 129);
   display: inline-flex;
   align-items: center;
   justify-content: center;

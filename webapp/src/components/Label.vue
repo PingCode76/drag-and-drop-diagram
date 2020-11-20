@@ -104,6 +104,6 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
   display: inline-block;
   position: relative;
   flex: 1;
-  background-color: green;
+  background-color: rgb(170, 170, 170);
 }
 </style>
