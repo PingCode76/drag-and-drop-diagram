@@ -7,7 +7,7 @@ WORKDIR /app
 
 ENV STATIC_URL /static
 ENV STATIC_PATH /var/www/app/static
-EXPOSE 80
+EXPOSE 5000
 #ENTRYPOINT ["run.py"]
 #COPY ./requirements.txt /var/www/requirements.txt
 #RUN pip install -r /var/www/requirements.txt

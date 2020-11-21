@@ -9,8 +9,12 @@ version: '3.7'
 # docker-compose stop
 services:
 
+  # Flask-Vue-Docker-Kubernetes-Postgres : https://hub.docker.com/r/zorrowang/flask-vue-kubernetes_postgres/tags
+  #zorrowang-containers:
+    #image: zorrowang/flask-vue-kubernetes_postgres
+
   # DATABSE configuration
-  db:
+  postgres:
     container_name: postgres
     image: postgres
     restart: always
@@ -18,6 +22,24 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 000000
     
+  # SERVER npm configuration
+  web:
+    build: .
+    command: npm run dev
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgresql://postgres:000000@localhost:5432/bdddragdrop
+  #npm-server:
+    #container_name: NodeServerNPM
+    #build: docker/Node
+
+
   #VUECLI configuration
   vuecli:
     container_name: VuedragdropDiagram
