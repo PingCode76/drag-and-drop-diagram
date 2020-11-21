@@ -1,15 +1,17 @@
 version: '3.7'
 
-# how to use ? 
+# HOW TO USE  ? 
 # docker-compose down
-# docker-compose up
-# docker-compose up -d --build
+# docker-compose up -d # launch containers
+
+#HELP 
+# docker-compose up -d --build  #launch containers with pre-build
 # docker-compose stop
 services:
 
   # DATABSE configuration
   db:
-    container_name: Postgres
+    container_name: postgres
     image: postgres
     restart: always
     environment:
@@ -17,7 +19,7 @@ services:
       POSTGRES_PASSWORD: 000000
     
   #VUECLI configuration
-  VueCLI:
+  vuecli:
     container_name: VuedragdropDiagram
     build: docker/Vue
       #context: .
@@ -29,7 +31,7 @@ services:
       - '8081:8080'
 
   # FLASK Configuration
-  flask-WEB-API:
+  flask-web-api:
         build: docker/Flask
         ports:
             - "5000:5000"
