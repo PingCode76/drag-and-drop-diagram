@@ -1,21 +1,17 @@
 version: '3.7'
 
-# HOW TO USE  ? 
+# HOW TO USE DOCKER-COMPOSE ? 
 # docker-compose down
 # docker-compose up -d # launch containers
 
 #HELP 
-# docker-compose up -d --build  #launch containers with pre-build
+# docker-compose up -d --build --remove-orphans  #launch containers with pre-build
 # docker-compose stop
 services:
 
-  # Flask-Vue-Docker-Kubernetes-Postgres : https://hub.docker.com/r/zorrowang/flask-vue-kubernetes_postgres/tags
-  #zorrowang-containers:
-    #image: zorrowang/flask-vue-kubernetes_postgres
-
   # DATABSE configuration
   postgres:
-    container_name: postgres
+    container_name: postgres-SQL
     image: postgres
     restart: always
     environment:
@@ -24,7 +20,8 @@ services:
     
   # SERVER npm configuration
   web:
-    build: .
+    container_name: npm-vue-web-server
+    build: webapp
     command: npm run dev
     volumes:
       - .:/usr/app/
@@ -35,34 +32,15 @@ services:
       - postgres
     environment:
       DATABASE_URL: postgresql://postgres:000000@localhost:5432/bdddragdrop
-  #npm-server:
-    #container_name: NodeServerNPM
-    #build: docker/Node
-
-
-  #VUECLI configuration
-  vuecli:
-    container_name: VuedragdropDiagram
-    build: docker/Vue
-      #context: .
-      #dockerfile: Vue/Dockerfile
-    volumes:
-      - '.:/app'
-      - '/app/node_modules'
-    ports:
-      - '8081:8080'
 
   # FLASK Configuration
   flask-web-api:
-        build: docker/Flask
-        ports:
-            - "5000:5000"
-        volumes:
-            - .:/api
-        #depends_on:
-            #- redis
-    #redis:
-        #image: redis
+    container_name: flask-web-server-api
+    build: api
+    ports:
+        - "5000:5000"
+    volumes:
+        - .:/api
 
 #volumes:
   #db_data:
