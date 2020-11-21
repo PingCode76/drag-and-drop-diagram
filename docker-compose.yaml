@@ -22,7 +22,7 @@ services:
   web:
     container_name: npm-vue-web-server
     build: webapp
-    command: npm run dev
+    command: npm run serve
     volumes:
       - .:/usr/app/
       - /usr/app/node_modules

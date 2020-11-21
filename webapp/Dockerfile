@@ -11,10 +11,10 @@ WORKDIR /app
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package.json package.json
-COPY package-lock.json package-lock.json
+#COPY package-lock.json package-lock.json
 
-USER node
-
+#USER node
+# RUN yarn install
 RUN npm install
 RUN npm install @vue/cli@3.7.0 -g
 
