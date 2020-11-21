@@ -1,44 +1,46 @@
 version: '3.7'
 
-# how to use ? 
+# HOW TO USE DOCKER-COMPOSE ? 
 # docker-compose down
-# docker-compose up
-# docker-compose up -d --build
+# docker-compose up -d # launch containers
+
+#HELP 
+# docker-compose up -d --build --remove-orphans  #launch containers with pre-build
 # docker-compose stop
 services:
 
   # DATABSE configuration
-  db:
-    container_name: Postgres
+  postgres:
+    container_name: postgres-SQL
     image: postgres
     restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 000000
     
-  #VUECLI configuration
-  VueCLI:
-    container_name: VuedragdropDiagram
-    build: docker/Vue
-      #context: .
-      #dockerfile: Vue/Dockerfile
+  # SERVER npm configuration
+  web:
+    container_name: npm-vue-web-server
+    build: webapp
+    command: npm run serve
     volumes:
-      - '.:/app'
-      - '/app/node_modules'
+      - .:/usr/app/
+      - /usr/app/node_modules
     ports:
-      - '8081:8080'
+      - "3000:3000"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgresql://postgres:000000@localhost:5432/bdddragdrop
 
   # FLASK Configuration
-  flask-WEB-API:
-        build: docker/Flask
-        ports:
-            - "5000:5000"
-        volumes:
-            - .:/api
-        #depends_on:
-            #- redis
-    #redis:
-        #image: redis
+  flask-web-api:
+    container_name: flask-web-server-api
+    build: api
+    ports:
+        - "5000:5000"
+    volumes:
+        - .:/api
 
 #volumes:
   #db_data:
