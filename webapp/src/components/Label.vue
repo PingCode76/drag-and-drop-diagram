@@ -4,7 +4,7 @@
         <drop class="copyLabel" @drop="onCopyDropLabel">
             <span v-for="(n, index) in copied" :key="index">
                 <transition-group name="list" tag="div">
-                    <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}
+                    <drag v-for="n in numbers" :key="n" class="labels" :data="n" @cut="remove(n)">{{n}}
                       <input class="node-left" v-model="nodeL" placeholder="node L"> <!-- <p> Data form is : {{ nodeL }} </p> --> 
                       <input class="txt-label" v-model="message" placeholder="txt">
                       <input class="node-right" v-model="nodeR" placeholder="node R">
@@ -16,7 +16,7 @@
         <drop class="copyLabel" @drop="onCopyDropLabel1">
             <span v-for="(n, index1) in copied1" :key="index1">
                 <transition-group name="list" tag="div">
-                    <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}
+                    <drag v-for="n in numbers" :key="n" class="labels" :data="n" @cut="remove(n)">{{n}}
                       <input class="node-left" v-model="nodeL" placeholder="node L">
                       <input class="txt-label" v-model="message" placeholder="txt">
                       <input class="node-right" v-model="nodeR" placeholder="node R">
@@ -28,7 +28,7 @@
         <drop class="copyLabel" @drop="onCopyDropLabel2">
             <span v-for="(n, index2) in copied2" :key="index2">
                 <transition-group name="list" tag="div">
-                    <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}
+                    <drag v-for="n in numbers" :key="n" class="labels" :data="n" @cut="remove(n)">{{n}}
                       <input class="node-left" v-model="nodeL" placeholder="node L">
                       <input class="txt-label" v-model="message" placeholder="txt">
                       <input class="node-right" v-model="nodeR" placeholder="node R">                   
@@ -92,6 +92,21 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
 </script>
 
 <style>
+/* item in diagram */ 
+.labels {
+  width: 270px;
+  height: 140px;
+  background-color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 10px 0 10px;
+  font-size: 20px;
+  transition: all 0.5s;
+  margin-bottom : 10px ; 
+  text-align : center ;
+  border-radius: 15px ; 
+}
 .node-left {
   width : 75px ; 
   height:50%;
@@ -138,5 +153,6 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
   position: relative;
   flex: 1;
   background-color: rgb(170, 170, 170);
+  border-radius: 15px ; 
 }
 </style>

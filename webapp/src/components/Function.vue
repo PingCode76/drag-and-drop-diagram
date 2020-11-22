@@ -75,6 +75,7 @@ import Label from '../components/Label.vue'
   position: relative;
   flex: 1;
   border : 3px grey solid ;
+  border-radius: 18px ; 
   /* background-color: rgba(25,25,25,0.2); */
 }
 
@@ -91,6 +92,7 @@ import Label from '../components/Label.vue'
 
 /* div function */ 
 .function {
+    border-radius: 18px ; 
     width: 95%;
     min-height: 150px;
     height: auto;
