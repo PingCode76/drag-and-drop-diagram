@@ -9,13 +9,12 @@
       <button type="button" class="btn btn-danger">
         Export Data
       </button>
-
       <h4> Element </h4>
       <hr class="hr-80">
       <!-- -------------------- Export Drag  --------------------   -->
 
       <!-- label transition -->
-      <h7> add label </h7>
+      <h4> add label </h4>
       <transition-group name="list" tag="div">
         <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
       </transition-group>
@@ -23,17 +22,12 @@
       <!-- end label transition -->
 
       <!-- label transition -->
-      <h7> add function </h7>
+      <h4> add function </h4>
       <transition-group name="list" tag="div">
         <drag v-for="f in functions" :key="f" class="functions" :data="f" @cut="remove(f)">{{f}}</drag>
       </transition-group>
       <hr class="hr-80">
       <!-- end label transition -->
-
-      <!-- node transition -->
-      <h7> add nodes </h7>
-      <hr class="hr-80">
-      <!-- end node transition -->
 
       <!-- -------------------- End Export Drag  --------------------   -->
       
@@ -47,6 +41,10 @@
 
       </div> <!-- end container diagram-->
     </div> <!-- end container -->
+
+    <!-- remove component --> 
+    <remove></remove>
+
   </div> <!-- end home-->
 </template>
 
@@ -55,6 +53,7 @@
 import { Drag, Drop, DropMask } from "vue-easy-dnd";
 import BaseComponent from '../components/BaseComponent.vue'
 import Function from '../components/Function.vue'
+import Remove from '../components/Remove.vue'
 
   export default {
     name: 'Home',
@@ -62,6 +61,7 @@ import Function from '../components/Function.vue'
       BaseComponent,
       Drag,
       Function,
+      Remove,
     },
     data: function(){
         return {
@@ -74,13 +74,18 @@ import Function from '../components/Function.vue'
         const gResponse = await fetch("http://localhost:5000/greeting");
         const gObject = await gResponse.json();
         this.APImessageGreeting = gObject.greeting;
+    },
+    methods: {
+      onCutDrop(e) {
+        this.cut.push(e.data);
+      }
     }
   }
 </script>
 
 <style>
 
-/* item drag and drop */ 
+/* item drag and drop (drag-left)  */ 
 .label {
   width: 170px;
   height: 60px;
@@ -92,10 +97,13 @@ import Function from '../components/Function.vue'
   font-size: 20px;
   transition: all 0.5s;
   margin-bottom : 10px ; 
+  text-align : center ;
+  border-radius: 15px ; 
 }
 
 /* item drag and drop */ 
 .functions {
+  border-radius: 18px ; 
   width: 170px;
   height: 60px;
   background-color: rgb(6, 143, 129);
@@ -140,19 +148,22 @@ import Function from '../components/Function.vue'
     top: 0%;
     float: left;
     margin-top: 350px;
+    padding-top: 50px ; 
     margin-bottom: 200px;
     margin-left: 35px;
     text-align: center;
-    border-bottom : 2px black solid ;
-    border-top : 2px black solid ;
-    border-left : 2px black solid ;
+    border-bottom : 5px burlywood solid ;
+    border-top : 5px burlywood solid ;
+    border-left : 5px burlywood solid ;
+    border-radius: 15px ; 
     vertical-align: center;
 }
 
 /* Container ( diagram )  */
 
 .container-diagram {
-    border : 2px black solid ;
+    border : 5px turquoise solid ;
+    border-radius: 15px ; 
     min-height : 700px;
     height: auto;
     margin-top: 50px;
