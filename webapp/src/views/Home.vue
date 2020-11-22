@@ -82,8 +82,8 @@ import Function from '../components/Function.vue'
 
 /* item drag and drop */ 
 .label {
-  width: 170px;
-  height: 60px;
+  width: 270px;
+  height: 140px;
   background-color: white;
   display: inline-flex;
   align-items: center;
@@ -92,6 +92,7 @@ import Function from '../components/Function.vue'
   font-size: 20px;
   transition: all 0.5s;
   margin-bottom : 10px ; 
+  text-align : center ;
 }
 
 /* item drag and drop */ 
