@@ -92,7 +92,7 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
 </script>
 
 <style>
-/* item in diagram */ 
+/* item in diagram */
 .labels {
   width: 270px;
   height: 140px;

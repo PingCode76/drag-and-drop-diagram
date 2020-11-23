@@ -24,7 +24,7 @@
       <!-- label transition -->
       <h4> add function </h4>
       <transition-group name="list" tag="div">
-        <drag v-for="f in functions" :key="f" class="functions" :data="f" @cut="remove(f)">{{f}}</drag>
+        <drag v-for="f in functions" :key="f" class="functions" :data="f" :type="typeof f" @cut="remove(f)">{{f}}</drag>
       </transition-group>
       <hr class="hr-80">
       <!-- end label transition -->

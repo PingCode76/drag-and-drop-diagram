@@ -1,20 +1,20 @@
 <template>
-    <!-- function drag label in function -->
-    <drop class="copyFunction" @drop="onCopyDropFunctions">
-      <span v-for="(f, function1) in copiedFunction" :key="function1">
-        <transition-group name="list" tag="div">
-          <drag v-for="f in functions" :key="f" class="function" :data="f" @cut="remove(f)">{{f}}
-            <div class="row">
-                <div class="function">
-                  <!-- label Component -->
-                  <Label></Label>
-                </div> <!-- end function-->
-            </div> <!-- end row -->
-          </drag>  
-        </transition-group>
-      </span>
-    </drop>
-    <!-- end function drag label in function -->
+  <!-- function drag label in function -->
+  <drop class="copyFunction" @drop="onCopyDropFunctions" :accepts-data="(f) => f === f" accepts-type="string">
+    <span v-for="(f, function1) in copiedFunction" :key="function1">
+      <transition-group name="list" tag="div">
+        <drag v-for="f in functions" :key="f" class="function" :data="f" @cut="remove(f)">{{f}}
+          <div class="row">
+            <div class="function">
+              <!-- label Component -->
+              <Label></Label>
+            </div> <!-- end function-->
+          </div> <!-- end row -->
+        </drag>  
+      </transition-group>
+    </span>
+  </drop>
+  <!-- end function drag label in function -->
 </template>
 
 <script>
@@ -34,7 +34,7 @@ import Label from '../components/Label.vue'
             APImessageGreeting: '',
             numbers: ["label"], // label uniq drag !important
             functions: ["function"], // function uniq drag !important
-            copiedFunction: [], // function 
+            copiedFunction: [], // function result drop
         }
     },
     methods: {
@@ -52,7 +52,7 @@ import Label from '../components/Label.vue'
         this.numbers2.splice(index2, 1);
 
         let function1 = this.functions.indexOf(f);
-        this.functions.splice(function1, 1)
+        this.functions.splice(function1, 1);
       }
     },
     created: async function(){
