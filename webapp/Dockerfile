@@ -1,7 +1,7 @@
-FROM node:10
+FROM node:lts-alpine
 #https://www.docker.com/blog/getting-started-with-docker-using-node-jspart-i/
 
-
+RUN npm install -g http-server
 #RUN apt-get update -y
 # Create app directory
 WORKDIR /app
@@ -11,7 +11,7 @@ WORKDIR /app
 # where available (npm@5+)
 
 # COPY package*.json ./
-COPY package.json package.json 
+COPY package.json ./ 
 #COPY package-lock.json package-lock.json
 
 #USER node
@@ -25,5 +25,13 @@ RUN npm install
 # Bundle app source
 COPY . .
 
+#RUN npm run serve --port 4000
+# or package.json "scripts": {     "serve": "vue-cli-service serve --port 4000"   }
+#RUN npm run serve
+
 EXPOSE 4000
-CMD [ "node", "server.js" ]
+
+#ENTRYPOINT ["run.py"]   #client/src/main.js
+
+#CMD [ "node", "server.js" ]
+CMD [ "http-server", "dist" ]

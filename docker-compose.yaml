@@ -24,7 +24,7 @@ services:
   web:
     container_name: npm-vue-web-server
     build: webapp
-    command: npm run serve
+    command: npm run serve #--port 4000
     volumes:
       - .:/app/
       - /app/node_modules
