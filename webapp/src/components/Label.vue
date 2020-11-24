@@ -1,7 +1,7 @@
 <template>
     <div class="group">
         <!-- col -->
-        <drop class="copyLabel" @drop="onCopyDropLabel">
+        <drop class="copyLabel" @drop="onCopyDropLabel" :accepts-data="(n) => n === n" accepts-type="boolean">
             <span v-for="(n, index) in copied" :key="index">
                 <transition-group name="list" tag="div">
                     <drag v-for="n in numbers" :key="n" class="labels" :data="n" @cut="remove(n)">{{n}}
@@ -13,7 +13,7 @@
             </span>
         </drop>
         <!-- tra -->
-        <drop class="copyLabel" @drop="onCopyDropLabel1">
+        <drop class="copyLabel" @drop="onCopyDropLabel1" :accepts-data="(n) => n === n" accepts-type="boolean">
             <span v-for="(n, index1) in copied1" :key="index1">
                 <transition-group name="list" tag="div">
                     <drag v-for="n in numbers" :key="n" class="labels" :data="n" @cut="remove(n)">{{n}}
@@ -25,7 +25,7 @@
             </span>
         </drop>
         <!-- fer -->
-        <drop class="copyLabel" @drop="onCopyDropLabel2">
+        <drop class="copyLabel" @drop="onCopyDropLabel2" :accepts-data="(n) => n === n" accepts-type="boolean">
             <span v-for="(n, index2) in copied2" :key="index2">
                 <transition-group name="list" tag="div">
                     <drag v-for="n in numbers" :key="n" class="labels" :data="n" @cut="remove(n)">{{n}}

@@ -16,7 +16,7 @@
       <!-- label transition -->
       <h4> add label </h4>
       <transition-group name="list" tag="div">
-        <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
+        <drag v-for="n in numbers" :key="n" class="label" :data="n" :type="typeof true" @cut="remove(n)">{{n}}</drag>
       </transition-group>
       <hr class="hr-80">
       <!-- end label transition -->
