@@ -17,17 +17,19 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 000000
+    ports: 
+      - 5432
     
   # SERVER npm configuration
   web:
     container_name: npm-vue-web-server
     build: webapp
-    command: npm run serve
+    command: npm run serve --port 4000
     volumes:
-      - .:/usr/app/
-      - /usr/app/node_modules
+      - .:/app/
+      - /app/node_modules
     ports:
-      - "3000:3000"
+      - "4000:4000"
     depends_on:
       - postgres
     environment:

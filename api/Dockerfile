@@ -3,7 +3,7 @@ RUN apk --update add bash nano
 
 RUN pip install flask
 #RUN sh start.sh
-WORKDIR /app
+WORKDIR /app/api
 #COPY . .
 
 
