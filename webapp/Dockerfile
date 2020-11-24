@@ -11,9 +11,11 @@ WORKDIR /app
 # where available (npm@5+)
 
 # COPY package*.json ./
-COPY package.json ./ 
-#COPY package-lock.json package-lock.json
 
+COPY package.json package.json
+COPY package-lock.json package-lock.json
+
+COPY . .
 #USER node
 
 RUN npm install
@@ -23,7 +25,7 @@ RUN npm install
 # RUN npm ci --only=production
 
 # Bundle app source
-COPY . .
+#COPY . .
 
 #RUN npm run serve --port 4000
 # or package.json "scripts": {     "serve": "vue-cli-service serve --port 4000"   }
