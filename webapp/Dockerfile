@@ -4,7 +4,7 @@ FROM node:lts-alpine
 RUN npm install -g http-server
 #RUN apt-get update -y
 # Create app directory
-WORKDIR /app
+WORKDIR /
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
@@ -13,7 +13,7 @@ WORKDIR /app
 # COPY package*.json ./
 
 COPY package.json package.json
-COPY package-lock.json package-lock.json
+#COPY package-lock.json package-lock.json
 
 COPY . .
 #USER node
@@ -26,6 +26,8 @@ RUN npm install
 
 # Bundle app source
 #COPY . .
+
+RUN npm run serve --port 4000
 
 #RUN npm run serve --port 4000
 # or package.json "scripts": {     "serve": "vue-cli-service serve --port 4000"   }
