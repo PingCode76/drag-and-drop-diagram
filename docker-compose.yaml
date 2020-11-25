@@ -26,8 +26,8 @@ services:
     build: webapp
     #command: npm run serve --port 4000
     volumes:
-      - .:/app/
-      - /app/node_modules
+      - .:/
+      - /node_modules
     ports:
       - "4000:4000"
     depends_on:
