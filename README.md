@@ -40,7 +40,7 @@ install the necessary library
     - python manage.py db upgrade
 
 ## Docker
-
+Docker-compose up --build
 
 ## Algorithm
 
