@@ -2,7 +2,7 @@
     <div class="group">
         <!-- col -->
         <drop class="copyLabel" @drop="onCopyDropLabel" :accepts-data="(n) => n === n" accepts-type="boolean">
-            <span v-for="(n, index) in copied" :key="index">
+            <span v-for="(n, index) in Col" :key="index">
                 <transition-group name="list" tag="div">
                     <drag v-for="n in numbers" :key="n" class="labels" :data="n" @cut="remove(n)">{{n}}
                       <input class="node-left" v-model="nodeL" placeholder="node L"> <!-- <p> Data form is : {{ nodeL }} </p> --> 
@@ -14,7 +14,7 @@
         </drop>
         <!-- tra -->
         <drop class="copyLabel" @drop="onCopyDropLabel1" :accepts-data="(n) => n === n" accepts-type="boolean">
-            <span v-for="(n, index1) in copied1" :key="index1">
+            <span v-for="(n, index1) in Tra" :key="index1">
                 <transition-group name="list" tag="div">
                     <drag v-for="n in numbers" :key="n" class="labels" :data="n" @cut="remove(n)">{{n}}
                       <input class="node-left" v-model="nodeL" placeholder="node L">
@@ -26,7 +26,7 @@
         </drop>
         <!-- fer -->
         <drop class="copyLabel" @drop="onCopyDropLabel2" :accepts-data="(n) => n === n" accepts-type="boolean">
-            <span v-for="(n, index2) in copied2" :key="index2">
+            <span v-for="(n, index2) in Fer" :key="index2">
                 <transition-group name="list" tag="div">
                     <drag v-for="n in numbers" :key="n" class="labels" :data="n" @cut="remove(n)">{{n}}
                       <input class="node-left" v-model="nodeL" placeholder="node L">
@@ -54,33 +54,24 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
             APImessageGreeting: '',
             numbers: [""], // label uniq drag !important
             functions: ["function"], // function uniq drag !important
-            copied: [], // label copied number 
-            copied1: [],
-            copied2: [],
+            Col: [], // label copied number 
+            Tra: [],
+            Fer: [],
         }
     },
     methods: {
       onCopyDropLabel(e) {
-        this.copied.push(e.data);
+        this.Col.push(e.data);
       },
       onCopyDropLabel1(e) {
-        this.copied1.push(e.data);
+        this.Tra.push(e.data);
       },
       onCopyDropLabel2(e) {
-        this.copied2.push(e.data);
+        this.Fer.push(e.data);
       },
       remove(n) {
         let index = this.numbers.indexOf(n);
         this.numbers.splice(index, 1);
-
-        let index1 = this.numbers1.indexOf(n);
-        this.numbers1.splice(index1, 1);
-
-        let index2 = this.numbers2.indexOf(n);
-        this.numbers2.splice(index2, 1);
-
-        let function1 = this.functions.indexOf(f);
-        this.functions.splice(function1, 1)
       }
     },
     created: async function(){
