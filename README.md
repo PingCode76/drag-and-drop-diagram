@@ -11,14 +11,18 @@ Generate a data with a diagram, created with drag and drop
 
 ## Generality
 
-Launch a python server:
+Launch a python server ( in api folder) :
 
-    flask run (in api folder) 
+```bash
+$ flask run 
+```
 
 Launch a Vue server with yarn or npm in webapp folder:
 
-    npm install
-    npm run serve
+```bash
+npm install
+npm run serve
+```
 
 install the necessary library
 

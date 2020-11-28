@@ -41,18 +41,11 @@ import Label from '../components/Label.vue'
       onCopyDropFunctions(e) {
         this.copiedFunction.push(e.data);
       },
-      remove(n) {
-        let index = this.numbers.indexOf(n);
-        this.numbers.splice(index, 1);
 
-        let index1 = this.numbers1.indexOf(n);
-        this.numbers1.splice(index1, 1);
-
-        let index2 = this.numbers2.indexOf(n);
-        this.numbers2.splice(index2, 1);
-
+      remove(f) {
         let function1 = this.functions.indexOf(f);
         this.functions.splice(function1, 1);
+
       }
     },
     created: async function(){

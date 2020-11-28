@@ -35,10 +35,6 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
     methods: {
         onCutDrop(e) {
             this.cut.push(e.data);
-        },
-        remove(n) {
-            let index = this.numbers.indexOf(n);
-            this.numbers.splice(index, 1);
         }
     }
   }
