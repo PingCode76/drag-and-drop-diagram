@@ -2,7 +2,7 @@
     <div class="group">
         <!-- col -->
         <drop class="copyLabel" @drop="onCopyDropLabel" :accepts-data="(nCol) => nCol === nCol" accepts-type="boolean">
-            <span v-for="(nCol, index) in Col" :key="index">
+            <span v-for="(nCol, ColumnCol) in Col" :key="ColumnCol">
                 <transition-group name="list" tag="div">
                     <drag v-for="n in labelCol" :key="n" class="labels" :data="n" @cut="remove(n)">{{n}}
                       <input class="node-left" v-model="nodeL" placeholder="node L"> <!-- <p> Data form is : {{ nodeL }} </p> --> 
@@ -14,7 +14,7 @@
         </drop>
         <!-- tra -->
         <drop class="copyLabel" @drop="onCopyDropLabel1" :accepts-data="(nTra) => nTra === nTra" accepts-type="boolean">
-            <span v-for="(nTra, index1) in Tra" :key="index1">
+            <span v-for="(nTra, ColumnTra) in Tra" :key="ColumnTra">
                 <transition-group name="list" tag="div">
                     <drag v-for="n in labelTra" :key="n" class="labels" :data="n" @cut="remove(n)">{{n}}
                       <input class="node-left" v-model="nodeL" placeholder="node L">
@@ -26,7 +26,7 @@
         </drop>
         <!-- fer -->
         <drop class="copyLabel" @drop="onCopyDropLabel2" :accepts-data="(nFer) => nFer === nFer" accepts-type="boolean">
-            <span v-for="(nFer, index2) in Fer" :key="index2">
+            <span v-for="(nFer, ColumnFer) in Fer" :key="ColumnFer">
                 <transition-group name="list" tag="div">
                     <drag v-for="n in labelFer" :key="n" class="labels" :data="n" @cut="remove(n)">{{n}}
                       <input class="node-left" v-model="nodeL" placeholder="node L">
@@ -55,7 +55,6 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
             labelCol: ["a"], // label uniq drag !important
             labelTra: ["b"], // label uniq drag !important
             labelFer: ["c"], // label uniq drag !important
-            functions: ["function"], // function uniq drag !important
             Col: [], // label copied in colum 
             Tra: [],
             Fer: [],
@@ -72,14 +71,14 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
         this.Fer.push(e.data);
       },
       remove(nCol,nTra,nFer) {
-        let index = this.labelCol.indexOf(nCol);
-        this.labelCol.splice(index, 1);
+        let indexCol = this.labelCol.indexOf(nCol);
+        this.labelCol.splice(indexCol, 1);
 
-        let index1 = this.labelTra.indexOf(nTra);
-        this.labelCol.splice(index1, 1);
+        let indexTra = this.labelTra.indexOf(nTra);
+        this.labelCol.splice(indexTra, 1);
 
-        let index2 = this.labelFer.indexOf(nFer);
-        this.labelCol.splice(index2, 1);
+        let indexFer = this.labelFer.indexOf(nFer);
+        this.labelCol.splice(indexFer, 1);
       }
     },
     created: async function(){
