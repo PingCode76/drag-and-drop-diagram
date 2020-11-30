@@ -1,18 +1,22 @@
+#HOW to generate requirements.txt ?
+# pip install pipreqs
+# pipreqs /chemin/vers/votre/projet or just "pipreqs" in current folder
+# install with pip install -r requirements.txt
+
 FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
 RUN apk --update add bash nano
 
 RUN pip install flask
 #RUN sh start.sh
-WORKDIR /app/api
-#COPY . .
-
+WORKDIR /app
+COPY . .
 
 ENV STATIC_URL /static
 ENV STATIC_PATH /var/www/app/static
 EXPOSE 5000
 #ENTRYPOINT ["run.py"]
-#COPY ./requirements.txt /var/www/requirements.txt
-#RUN pip install -r /var/www/requirements.txt
+#COPY requirements.txt requirements.txt
+#RUN pip install -r requirements.txt
 
 
 
