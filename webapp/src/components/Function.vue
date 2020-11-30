@@ -32,7 +32,6 @@ import Label from '../components/Label.vue'
     data: function(){
         return {
             APImessageGreeting: '',
-            numbers: ["label"], // label uniq drag !important
             functions: ["function"], // function uniq drag !important
             copiedFunction: [], // function result drop
         }
@@ -41,11 +40,9 @@ import Label from '../components/Label.vue'
       onCopyDropFunctions(e) {
         this.copiedFunction.push(e.data);
       },
-
       remove(f) {
         let function1 = this.functions.indexOf(f);
         this.functions.splice(function1, 1);
-
       }
     },
     created: async function(){
