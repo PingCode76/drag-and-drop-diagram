@@ -4,7 +4,8 @@
         <drop class="copyLabel" @drop="onCopyDropLabel" :accepts-data="(nCol) => nCol === nCol" accepts-type="boolean">
             <span v-for="(nCol, ColumnCol) in Col" :key="ColumnCol">
                 <transition-group name="list" tag="div">
-                    <drag v-for="n in labelCol" :key="n" class="labels" :data="n" @cut="remove(n)">{{n}}
+                    <drag v-for="nColLabel in labelCol" :key="nColLabel" class="labels" :data="nColLabel" @cut="removeCol(nColLabel)">{{nColLabel}}
+                      <p> Col</p>
                       <input class="node-left" v-model="nodeL" placeholder="node L"> <!-- <p> Data form is : {{ nodeL }} </p> --> 
                       <input class="txt-label" v-model="message" placeholder="txt">
                       <input class="node-right" v-model="nodeR" placeholder="node R">
@@ -16,7 +17,8 @@
         <drop class="copyLabel" @drop="onCopyDropLabel1" :accepts-data="(nTra) => nTra === nTra" accepts-type="boolean">
             <span v-for="(nTra, ColumnTra) in Tra" :key="ColumnTra">
                 <transition-group name="list" tag="div">
-                    <drag v-for="n in labelTra" :key="n" class="labels" :data="n" @cut="remove(n)">{{n}}
+                    <drag v-for="nTraLabel in labelTra" :key="nTraLabel" class="labels" :data="nTraLabel" @cut="removeTra(nTraLabel)">{{nTraLabel}}
+                      <p> Tra</p>
                       <input class="node-left" v-model="nodeL" placeholder="node L">
                       <input class="txt-label" v-model="message" placeholder="txt">
                       <input class="node-right" v-model="nodeR" placeholder="node R">
@@ -28,11 +30,12 @@
         <drop class="copyLabel" @drop="onCopyDropLabel2" :accepts-data="(nFer) => nFer === nFer" accepts-type="boolean">
             <span v-for="(nFer, ColumnFer) in Fer" :key="ColumnFer">
                 <transition-group name="list" tag="div">
-                    <drag v-for="n in labelFer" :key="n" class="labels" :data="n" @cut="remove(n)">{{n}}
+                    <drag v-for="nFerLabel in labelFer" :key="nFerLabel" class="labels" :data="nFerLabel" @cut="removeFer(nFerLabel)">{{nFerLabel}}
+                      <p> Fer</p>
                       <input class="node-left" v-model="nodeL" placeholder="node L">
                       <input class="txt-label" v-model="message" placeholder="txt">
                       <input class="node-right" v-model="nodeR" placeholder="node R">                   
-                    </drag>
+                    </drag> 
                 </transition-group>
             </span>
         </drop>
@@ -52,9 +55,9 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
     data: function(){
         return {
             APImessageGreeting: '',
-            labelCol: ["a"], // label uniq drag !important
-            labelTra: ["b"], // label uniq drag !important
-            labelFer: ["c"], // label uniq drag !important
+            labelCol: [""], // label uniq drag !important
+            labelTra: [""], // label uniq drag !important
+            labelFer: [""], // label uniq drag !important
             Col: [], // label copied in colum 
             Tra: [],
             Fer: [],
@@ -70,15 +73,17 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
       onCopyDropLabel2(e) {
         this.Fer.push(e.data);
       },
-      remove(nCol,nTra,nFer) {
-        let indexCol = this.labelCol.indexOf(nCol);
-        this.labelCol.splice(indexCol, 1);
-
-        let indexTra = this.labelTra.indexOf(nTra);
-        this.labelCol.splice(indexTra, 1);
-
-        let indexFer = this.labelFer.indexOf(nFer);
-        this.labelCol.splice(indexFer, 1);
+      removeCol(nColLabel) {
+        let indexCol = this.labelCol.indexOf(nColLabel);
+        this.Col.splice(indexCol, 1);
+      },
+      removeTra(nTraLabel) {
+        let indexTra = this.labelTra.indexOf(nTraLabel);
+        this.Tra.splice(indexTra, 1);
+      },
+      removeFer(nFerLabel) {
+        let indexFer = this.labelFer.indexOf(nFerLabel);
+        this.Fer.splice(indexFer, 1);
       }
     },
     created: async function(){
