@@ -11,7 +11,13 @@ Generate a data with a diagram, created with drag and drop
 
 ## Generality
 
-Launch a python server ( in api folder) :
+Download python dependency
+
+    pip install pipreqs
+    pipreqs
+    pip install -r requirements.txt
+
+Launch a python server:
 
 ```bash
 $ flask run 
