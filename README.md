@@ -11,11 +11,13 @@ Generate a data with a diagram, created with drag and drop
 
 ## Generality
 
-Download python dependency
+install the necessary library
 
-    pip install pipreqs
-    pipreqs
-    pip install -r requirements.txt
+```bash
+$ pip install pipreqs
+$ pipreqs
+$ pip install -r requirements.txt
+```
 
 Launch a python server:
 
@@ -26,20 +28,9 @@ $ flask run
 Launch a Vue server with yarn or npm in webapp folder:
 
 ```bash
-npm install
-npm run serve
+$ npm install
+$ npm run serve
 ```
-
-install the necessary library
-
-    - pip install flask
-    - pip install xlrd
-    - pip install turtle
-
-    For Database ( PostreSQL ) 
-
-    - pip install psycopg2 Flask-SQLAlchemy Flask-Migrate
-    - pip install flask_script 
 
 ## DataBase
 
@@ -50,7 +41,9 @@ install the necessary library
     - python manage.py db upgrade
 
 ## Docker
-Docker-compose up --build
+```bash
+$ Docker-compose up --build
+```
 
 ## Algorithm
 
