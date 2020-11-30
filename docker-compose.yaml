@@ -24,14 +24,14 @@ services:
   web:
     container_name: npm-vue-web-server
     build: webapp
-    #command: npm run serve --port 4000
-    volumes:
-      - .:/
-      - /node_modules
+    command: npm run serve -d
+    #volumes:
+      #- .:/app
+      #- app/node_modules
     ports:
       - "4000:4000"
-    depends_on:
-      - postgres
+    #depends_on:
+      #- postgres
     environment:
       DATABASE_URL: postgresql://postgres:000000@localhost:5432/bdddragdrop
 
