@@ -11,7 +11,7 @@ services:
 
   # DATABSE configuration
   postgres:
-    container_name: postgres-SQL
+    container_name: postgres-SQL-client
     image: postgres
     restart: always
     environment:
@@ -22,7 +22,7 @@ services:
     
   # SERVER npm configuration
   web:
-    container_name: npm-vue-web-server
+    container_name: npm-web-server
     build: webapp
     command: npm run serve -d
     #volumes:
@@ -30,15 +30,16 @@ services:
       #- app/node_modules
     ports:
       - "4000:4000"
-    #depends_on:
-      #- postgres
+    depends_on:
+      - postgres
     environment:
       DATABASE_URL: postgresql://postgres:000000@localhost:5432/bdddragdrop
 
   # FLASK Configuration
   flask-web-api:
-    container_name: flask-web-server-api
+    container_name: flask-api
     build: api
+    command: flask run
     ports:
         - "5000:5000"
     volumes:
