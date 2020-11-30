@@ -7,7 +7,7 @@ Generate a data with a diagram, created with drag and drop
 ## Technologies
     - Flask
     - Vue.js
-    - Drag and Drop Component : https://github.com/SortableJS/Vue.Draggable 
+    - Drag and Drop Component : Easy-Dnd ( https://github.com/rlemaigre/Easy-DnD ) 
 
 ## Generality
 
@@ -19,12 +19,16 @@ Download python dependency
 
 Launch a python server:
 
-    flask run (in api folder) 
+```bash
+$ flask run 
+```
 
 Launch a Vue server with yarn or npm in webapp folder:
 
-    npm install
-    npm run serve
+```bash
+npm install
+npm run serve
+```
 
 install the necessary library
 
@@ -45,11 +49,8 @@ install the necessary library
     - python manage.py db migrate
     - python manage.py db upgrade
 
-## How does the app work?
-
-- views.py is the application routing file
-- base.html/index.html/result.html are template files, no algorithmic element at this
-- run.py is the entry point of the application
+## Docker
+Docker-compose up --build
 
 ## Algorithm
 

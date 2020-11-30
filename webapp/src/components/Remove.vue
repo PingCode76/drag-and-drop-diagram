@@ -3,7 +3,12 @@
   <!-- desk -->
   <div class="trash">
     <drop class="cut" @drop="onCutDrop" mode="cut">
-      <span v-for="(n, index) in cut" :key="index"> </span>
+      <!-- 
+      <span v-if="(nCol, index) in cut" :key="index"> </span>
+      <span v-if="(nTra, index1) in cut" :key="index1"> </span>
+      <span v-if="(nFer, index2) in cut" :key="index2"> </span>
+      -->
+      <span v-if="(n, index) in cut" :key="index"> </span>
       <i class="far fa-trash-alt"></i>
     </drop>
   </div>
@@ -35,10 +40,6 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
     methods: {
         onCutDrop(e) {
             this.cut.push(e.data);
-        },
-        remove(n) {
-            let index = this.numbers.indexOf(n);
-            this.numbers.splice(index, 1);
         }
     }
   }

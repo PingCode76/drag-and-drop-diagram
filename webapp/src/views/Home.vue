@@ -16,22 +16,23 @@
       <!-- label transition -->
       <h4> add label </h4>
       <transition-group name="list" tag="div">
-        <drag v-for="n in numbers" :key="n" class="label" :data="n" @cut="remove(n)">{{n}}</drag>
+        <drag v-for="n in numbers" :key="n" class="label" :data="n" :type="typeof true" @cut="remove(n)">{{n}}</drag>
       </transition-group>
       <hr class="hr-80">
       <!-- end label transition -->
 
-      <!-- label transition -->
+      <!-- function transition -->
       <h4> add function </h4>
       <transition-group name="list" tag="div">
-        <drag v-for="f in functions" :key="f" class="functions" :data="f" @cut="remove(f)">{{f}}</drag>
+        <drag v-for="f in functions" :key="f" class="functions" :data="f" :type="typeof f" @cut="remove(f)">{{f}}</drag>
       </transition-group>
       <hr class="hr-80">
-      <!-- end label transition -->
+      <!-- end function transition -->
 
       <!-- -------------------- End Export Drag  --------------------   -->
       
     </div>
+    
     <div class="container">
       <div class="container-diagram">
         <h4> {{ title }} </h4>

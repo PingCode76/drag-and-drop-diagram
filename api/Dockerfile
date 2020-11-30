@@ -7,6 +7,7 @@ FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
 RUN apk --update add bash nano
 
 RUN pip install flask
+RUN pip install pipreqs
 #RUN sh start.sh
 WORKDIR /app
 COPY . .
@@ -16,7 +17,7 @@ ENV STATIC_PATH /var/www/app/static
 EXPOSE 5000
 #ENTRYPOINT ["run.py"]
 #COPY requirements.txt requirements.txt
-#RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
 
 
