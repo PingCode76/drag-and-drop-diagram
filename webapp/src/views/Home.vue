@@ -86,6 +86,11 @@ import Remove from '../components/Remove.vue'
 
 <style>
 
+.home {
+    background-color: rgb(6, 143, 129);
+    padding-bottom : 50px;
+}
+
 /* item drag and drop (drag-left)  */ 
 .label {
   width: 170px;
