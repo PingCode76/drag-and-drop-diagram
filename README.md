@@ -2,6 +2,8 @@
 
 Generate a data with a diagram, created with drag and drop
 
+https://forthebadge.com/images/badges/made-with-vue.svg
+
 ## Use the app 
 
 ## Technologies
