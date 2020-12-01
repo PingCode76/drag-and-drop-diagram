@@ -8,7 +8,8 @@
       <span v-if="(nTra, index1) in cut" :key="index1"> </span>
       <span v-if="(nFer, index2) in cut" :key="index2"> </span>
       -->
-      <span v-if="(n, index) in cut" :key="index"> </span>
+      
+      <!-- <span v-if="(n, index) in cut" :key="index"> </span> -->
       <i class="far fa-trash-alt"></i>
     </drop>
   </div>

@@ -8,9 +8,9 @@
                       <!-- <p> {{ Col }}</p> --> <!-- tab col "label"-->
                       <p> {{ ColumnCol }}</p> <!-- tab n label in col-->
                       <p> Col</p>
-                      <input class="node-left" v-model="nodeL" placeholder="node L"> <!-- <p> Data form is : {{ nodeL }} </p> --> 
-                      <input class="txt-label" v-model="message" placeholder="txt">
-                      <input class="node-right" v-model="nodeR" placeholder="node R">
+                      <input class="node-left" v-model="nodeLCol" placeholder="node L"> <!-- <p> Data form is : {{ nodeL }} </p> --> 
+                      <input class="txt-label" v-model="messageCol" placeholder="txt">
+                      <input class="node-right" v-model="nodeRCol" placeholder="node R">
                     </drag>
                 </transition-group>
             </span>
@@ -22,9 +22,9 @@
                     <drag v-for="nTraLabel in labelTra" :key="nTraLabel" class="labels" :data="nTraLabel" @cut="removeTra(nTraLabel)">{{nTraLabel}}
                       <p> {{ ColumnTra }}</p> <!-- tab n label in Tra-->
                       <p> Tra</p>
-                      <input class="node-left" v-model="nodeL" placeholder="node L">
-                      <input class="txt-label" v-model="message" placeholder="txt">
-                      <input class="node-right" v-model="nodeR" placeholder="node R">
+                      <input class="node-left" v-model="nodeLTra" placeholder="node L">
+                      <input class="txt-label" v-model="messageTra" placeholder="txt">
+                      <input class="node-right" v-model="nodeRTra" placeholder="node R">
                     </drag>
                 </transition-group>
             </span>
@@ -36,9 +36,9 @@
                     <drag v-for="nFerLabel in labelFer" :key="nFerLabel" class="labels" :data="nFerLabel" @cut="removeFer(nFerLabel)">{{nFerLabel}}
                       <p> {{ ColumnFer }}</p> <!-- tab n label in Fer-->
                       <p> Fer</p>
-                      <input class="node-left" v-model="nodeL" placeholder="node L">
-                      <input class="txt-label" v-model="message" placeholder="txt">
-                      <input class="node-right" v-model="nodeR" placeholder="node R">                   
+                      <input class="node-left" v-model="nodeLFer" placeholder="node L">
+                      <input class="txt-label" v-model="messageFer" placeholder="txt">
+                      <input class="node-right" v-model="nodeRFer" placeholder="node R">                   
                     </drag> 
                 </transition-group>
             </span>
