@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <BaseComponent title="Application Template"/>
+    <BaseComponent/>
     <h5> Drag and Drop Diagram </h5>
 
     <ul>

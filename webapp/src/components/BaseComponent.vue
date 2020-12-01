@@ -2,7 +2,7 @@
 <script>
   export default {
 	name: 'BaseComponent',
-	props: ['title']
+  props: ['title'],
   }
 </script>
 
@@ -15,7 +15,6 @@
       About
     </router-link>
     <br/><br/><br/><br/>
-	  {{ title }}
   </div>
 </template>
 
