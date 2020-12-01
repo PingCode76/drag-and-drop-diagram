@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <BaseComponent title="Application Template"/>
-    <p> {{ title }} </p>
+    <BaseComponent/>
     <p> {{ APImessageGreeting }}</p>
 
     <div class="drag-left">
@@ -35,7 +34,6 @@
     
     <div class="container">
       <div class="container-diagram">
-        <h4> {{ title }} </h4>
 
         <!-- component function --> 
         <function></function>
