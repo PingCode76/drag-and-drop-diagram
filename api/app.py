@@ -10,6 +10,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 CORS(app)
 models.db.init_app(app)
 
+@app.route("/")
+def home():
+    return {"home": "it's Home page"}
+
 @app.route("/greeting")
 def greeting():
     return {"greeting": "Hello from Flask API"}

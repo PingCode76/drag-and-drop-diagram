@@ -17,6 +17,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 000000
+      POSTGRES_DB: bdddragdrop
     ports: 
       - 5432
     
@@ -39,11 +40,13 @@ services:
   flask-web-api:
     container_name: flask-api
     build: api
-    command: flask run
+    command: flask run --port=5000
     ports:
         - "5000:5000"
     volumes:
         - .:/api
+    environment:
+      DATABASE_URL: postgresql://postgres:000000@localhost:5432/bdddragdrop
 
 #volumes:
   #db_data:
