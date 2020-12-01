@@ -2,11 +2,9 @@ version: '3.7'
 
 # HOW TO USE DOCKER-COMPOSE ? 
 # docker-compose down
-# docker-compose up -d # launch containers
-
-#HELP 
-# docker-compose up -d --build --remove-orphans  #launch containers with pre-build
+# docker-compose up -d --build --remove-orphans 
 # docker-compose stop
+
 services:
 
   # DATABSE configuration
@@ -40,13 +38,12 @@ services:
   flask-web-api:
     container_name: flask-api
     build: api
-    command: flask run --port=5000
     ports:
         - "5000:5000"
-    volumes:
-        - .:/api
-    environment:
-      DATABASE_URL: postgresql://postgres:000000@localhost:5432/bdddragdrop
+    #volumes:
+        #- myVolume:/api
+    #environment:
+      #DATABASE_URL: postgresql://postgres:000000@localhost:5432/bdddragdrop
 
 #volumes:
   #db_data:

@@ -44,3 +44,8 @@ class Label(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     var1 = db.Column(db.Integer)
     var2 = db.Column(db.Integer)
+    # title = db.Column(db.Integer)
+    # node1 = db.Column(db.Integer)
+    # node2 = db.Column(db.Integer)
+    # functionNumber = db.Column(db.Integer)
+    # column = db.Column(db.Integer)
