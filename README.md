@@ -36,9 +36,12 @@ $ npm run serve
 
     - Install PostGresSQL et create database 
     - change database configuration ( config.py ) 
-    - python manage.py db init
-    - python manage.py db migrate
-    - python manage.py db upgrade
+    
+```bash
+python manage.py db init
+python manage.py db migrate
+python manage.py db upgrade
+```
 
 ## Docker
 ```bash
