@@ -65,11 +65,25 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
             Col: [], // label copied in colum 
             Tra: [],
             Fer: [],
+            nodeLCol: '', // data Col
+            messageCol: '',
+            nodeRCol: '',
+            nodeLTra : '', // data Tra
+            messageTra: '',
+            nodeRTra : '',
+            nodeLFer : '', // data Tra 
+            messageFer : '',
+            nodeRFer : '',
         }
     },
     methods: {
       onCopyDropLabel(e) {
         this.Col.push(e.data);
+        
+        var dataCol = e.data;
+        console.log(dataCol);
+
+        console.log(this.messageCol);
       },
       onCopyDropLabel1(e) {
         this.Tra.push(e.data);
