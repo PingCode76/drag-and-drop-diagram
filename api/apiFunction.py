@@ -6,4 +6,4 @@ def addLabelAPI(nb1,nb2):
     Label1 = Label(var1=nb1,var2=nb2)
     db.session.add(Label1)
     db.session.commit()
-    return {"labelStatus": "added"}
+    return {"labelStatus": "added in DB"}

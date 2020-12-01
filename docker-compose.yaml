@@ -42,8 +42,9 @@ services:
         - "5000:5000"
     #volumes:
         #- myVolume:/api
-    #environment:
-      #DATABASE_URL: postgresql://postgres:000000@localhost:5432/bdddragdrop
+    environment:
+      DATABASE_URL: postgresql://postgres:000000@localhost:5432/bdddragdrop
+      LDFLAGS: -L/usr/local/opt/openssl/lib" export CPPFLAGS="-I/usr/local/opt/openssl/include
 
 #volumes:
   #db_data:
