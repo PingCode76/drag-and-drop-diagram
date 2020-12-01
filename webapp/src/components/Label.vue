@@ -4,7 +4,9 @@
         <drop class="copyLabel" @drop="onCopyDropLabel" :accepts-data="(nCol) => nCol === nCol" accepts-type="boolean">
             <span v-for="(nCol, ColumnCol) in Col" :key="ColumnCol">
                 <transition-group name="list" tag="div">
-                    <drag v-for="nColLabel in labelCol" :key="nColLabel" class="labels" :data="nColLabel" @cut="removeCol(nColLabel)">{{nColLabel}}
+                    <drag v-for="nColLabel in labelCol" :key="nColLabel" class="labels" :data="nColLabel" @cut="removeCol(nColLabel)">{{nColLabel}}                                   
+                      <!-- <p> {{ Col }}</p> --> <!-- tab col "label"-->
+                      <p> {{ ColumnCol }}</p> <!-- tab n label in col-->
                       <p> Col</p>
                       <input class="node-left" v-model="nodeL" placeholder="node L"> <!-- <p> Data form is : {{ nodeL }} </p> --> 
                       <input class="txt-label" v-model="message" placeholder="txt">
@@ -18,6 +20,7 @@
             <span v-for="(nTra, ColumnTra) in Tra" :key="ColumnTra">
                 <transition-group name="list" tag="div">
                     <drag v-for="nTraLabel in labelTra" :key="nTraLabel" class="labels" :data="nTraLabel" @cut="removeTra(nTraLabel)">{{nTraLabel}}
+                      <p> {{ ColumnTra }}</p> <!-- tab n label in Tra-->
                       <p> Tra</p>
                       <input class="node-left" v-model="nodeL" placeholder="node L">
                       <input class="txt-label" v-model="message" placeholder="txt">
@@ -31,6 +34,7 @@
             <span v-for="(nFer, ColumnFer) in Fer" :key="ColumnFer">
                 <transition-group name="list" tag="div">
                     <drag v-for="nFerLabel in labelFer" :key="nFerLabel" class="labels" :data="nFerLabel" @cut="removeFer(nFerLabel)">{{nFerLabel}}
+                      <p> {{ ColumnFer }}</p> <!-- tab n label in Fer-->
                       <p> Fer</p>
                       <input class="node-left" v-model="nodeL" placeholder="node L">
                       <input class="txt-label" v-model="message" placeholder="txt">
