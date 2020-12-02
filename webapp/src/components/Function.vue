@@ -34,11 +34,15 @@ import Label from '../components/Label.vue'
             APImessageGreeting: '',
             functions: ["function"], // function uniq drag !important
             copiedFunction: [], // function result drop
+            CountFunction : 0,
         }
     },
     methods: {
       onCopyDropFunctions(e) {
-        this.copiedFunction.push(e.data);
+        this.CountFunction = this.CountFunction + 1 // Count each function
+        this.copiedFunction.push(e.data+this.CountFunction);
+
+        console.log(this.copiedFunction);
       },
       remove(f) {
         let function1 = this.functions.indexOf(f);
