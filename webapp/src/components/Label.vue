@@ -62,9 +62,9 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
             labelCol: [""], // label uniq drag !important
             labelTra: [""], // label uniq drag !important
             labelFer: [""], // label uniq drag !important
-            Col: [], // label copied in colum 
-            Tra: [],
-            Fer: [],
+            Col: [], // label copied in Col
+            Tra: [], // label copied in Tra
+            Fer: [], // label copied in Fer
             nodeLCol: '', // data Col
             messageCol: '',
             nodeRCol: '',
@@ -74,44 +74,41 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
             nodeLFer : '', // data Tra 
             messageFer : '',
             nodeRFer : '',
-            CountCol : 0,
+            CountCol : 0, // give a number to a label
             CountTra : 0,
             CountFer : 0,
         }
     },
     methods: {
-      
       onCopyDropLabel(e) {
         this.CountCol = this.CountCol + 1 // Count each label Col
-        this.Col.push(e.data+this.CountCol);
+        this.Col.push(e.data+"Col"+this.CountCol);
 
         console.log(this.Col); // tab many label : name "label1.."
 
-        // info send api feature
-        console.log(this.Col[0]); // title
+        // API info send /AddLabel/title/node1/node2/FunctionNumber/Column for register one label
+        console.log(this.Col[this.Col.length -1 ]); // title element drop // count 
         // node 1
         // node 2 
         // fonction number 
-        // column ( col , Tra , Fer)
+        console.log("Col");// column ( col , Tra , Fer)
       },
       onCopyDropLabel1(e) { 
-
         this.CountTra = this.CountTra + 1 // Count each label Tra
-        this.Tra.push(e.data+this.CountTra);
+        this.Tra.push(e.data+"Tra"+this.CountTra);
+
         console.log(this.Tra); // tab many label : name "label"
 
       },
       onCopyDropLabel2(e) {
-
         this.CountFer = this.CountFer + 1 // Count each label Fer
-        this.Fer.push(e.data+this.CountFer);
+        this.Fer.push(e.data+"Fer"+this.CountFer);
+
         console.log(this.Fer); // tab many label : name "label"
 
       },
       removeCol(nColLabel) {
         let indexCol = this.labelCol.indexOf(nColLabel);
-
-        // console.log(indexCol);
         this.Col.splice(indexCol, 1 );
 
         console.log(this.Col); // tab many label : name "label"
