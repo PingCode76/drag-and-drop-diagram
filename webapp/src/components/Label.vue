@@ -65,21 +65,56 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
             Col: [], // label copied in colum 
             Tra: [],
             Fer: [],
+            nodeLCol: '', // data Col
+            messageCol: '',
+            nodeRCol: '',
+            nodeLTra : '', // data Tra
+            messageTra: '',
+            nodeRTra : '',
+            nodeLFer : '', // data Tra 
+            messageFer : '',
+            nodeRFer : '',
+            CountCol : 0,
+            CountTra : 0,
+            CountFer : 0,
         }
     },
     methods: {
+      
       onCopyDropLabel(e) {
-        this.Col.push(e.data);
+        this.CountCol = this.CountCol + 1 // Count each label Col
+        this.Col.push(e.data+this.CountCol);
+
+        console.log(this.Col); // tab many label : name "label1.."
+
+        // info send api feature
+        console.log(this.Col[0]); // title
+        // node 1
+        // node 2 
+        // fonction number 
+        // column ( col , Tra , Fer)
       },
-      onCopyDropLabel1(e) {
-        this.Tra.push(e.data);
+      onCopyDropLabel1(e) { 
+
+        this.CountTra = this.CountTra + 1 // Count each label Tra
+        this.Tra.push(e.data+this.CountTra);
+        console.log(this.Tra); // tab many label : name "label"
+
       },
       onCopyDropLabel2(e) {
-        this.Fer.push(e.data);
+
+        this.CountFer = this.CountFer + 1 // Count each label Fer
+        this.Fer.push(e.data+this.CountFer);
+        console.log(this.Fer); // tab many label : name "label"
+
       },
       removeCol(nColLabel) {
         let indexCol = this.labelCol.indexOf(nColLabel);
-        this.Col.splice(indexCol, 1);
+
+        // console.log(indexCol);
+        this.Col.splice(indexCol, 1 );
+
+        console.log(this.Col); // tab many label : name "label"
       },
       removeTra(nTraLabel) {
         let indexTra = this.labelTra.indexOf(nTraLabel);
@@ -91,6 +126,7 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
       }
     },
     created: async function(){
+        // send label with API : /label/title/NodeR/NodeL/Functionnumber/Column
         const gResponse = await fetch("http://localhost:5000/greeting");
         const gObject = await gResponse.json();
         this.APImessageGreeting = gObject.greeting;
