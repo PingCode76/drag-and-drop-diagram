@@ -2,25 +2,51 @@ version: '3.7'
 
 # HOW TO USE DOCKER-COMPOSE ? 
 # docker-compose down
-# docker-compose up -d # launch containers
-
-#HELP 
-# docker-compose up -d --build --remove-orphans  #launch containers with pre-build
+# docker-compose up -d --build --remove-orphans 
 # docker-compose stop
+
 services:
 
   # DATABSE configuration
   postgres:
     container_name: postgres-SQL-client
-    image: postgres
-    restart: always
+    image: postgres:9.4
+    #restart: always
+    hostname: postgres
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 000000
+      POSTGRES_DB: bdddragdrop
     ports: 
-      - 5432
-    
-  # SERVER npm configuration
+      - 5432:5432
+
+  #Client DB for postgres-SQL
+  adminer:
+    container_name: DB-Client
+    image: adminer
+    restart: always
+    ports:
+      - 1000:1000
+    environment:
+      ADMINER_DEFAULT_DB_HOST: root
+      ADMINER_DEFAULT_DB_DRIVER: pgsql
+    #depends_on:
+      #- postgres
+
+  # FLASK Configuration
+  flask-web-api:
+    container_name: flask-api
+    build: api
+    ports:
+        - "5000:5000"
+    volumes:
+        - myVolume:/data
+    environment:
+      DATABASE_URL: postgresql://postgres:000000@localhost:5432/bdddragdrop
+    depends_on:
+      - postgres
+  
+      # SERVER npm configuration
   web:
     container_name: npm-web-server
     build: webapp
@@ -35,15 +61,5 @@ services:
     environment:
       DATABASE_URL: postgresql://postgres:000000@localhost:5432/bdddragdrop
 
-  # FLASK Configuration
-  flask-web-api:
-    container_name: flask-api
-    build: api
-    command: flask run
-    ports:
-        - "5000:5000"
-    volumes:
-        - .:/api
-
-#volumes:
-  #db_data:
+volumes:
+  myVolume:

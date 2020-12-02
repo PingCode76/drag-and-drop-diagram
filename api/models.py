@@ -2,6 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, url_for, request, jsonify
 import datetime
 import logging as lg
+from sqlalchemy import cast, select, String
 
 #from .views import app
 # for install SQL postgres config
@@ -41,6 +42,21 @@ class Label(db.Model):
     """Model for the Label table"""
     __tablename__ = 'Label'
 
+    id = db.Column(db.Integer, primary_key = True, autoincrement=True)
+    title = db.Column(db.String(32))
+    node1 = db.Column(db.String(4))
+    node2 = db.Column(String(4))
+    functionNumber = db.Column(db.Integer)
+    column = db.Column(db.Integer)
+
+class Record(db.Model):
+    """Model for the Label table"""
+    __tablename__ = 'Record'
+
     id = db.Column(db.Integer, primary_key = True)
-    var1 = db.Column(db.Integer)
-    var2 = db.Column(db.Integer)
+    title = db.Column(db.Integer)
+    Labels = db.Column(db.Integer)
+
+#parent_id = db.Column(db.Integer, db.ForeignKey('regions.id'))
+#parent = db.relationship('Region', remote_side=id, primaryjoin=('Region.parent_id==Region.id'), backref='sub-regions')
+    

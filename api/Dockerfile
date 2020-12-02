@@ -1,38 +1,29 @@
-#HOW to generate requirements.txt ?
-# pip install pipreqs
-# pipreqs /chemin/vers/votre/projet or just "pipreqs" in current folder
-# install with pip install -r requirements.txt
+FROM python:3.7-alpine
 
-FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
-RUN apk --update add bash nano
+WORKDIR /code
 
-RUN pip install flask
-RUN pip install pipreqs
-#RUN sh start.sh
-WORKDIR /app
-COPY . .
+ENV FLASK_APP=app.py
 
-ENV STATIC_URL /static
-ENV STATIC_PATH /var/www/app/static
-EXPOSE 5000
-#ENTRYPOINT ["run.py"]
-#COPY requirements.txt requirements.txt
+ENV FLASK_RUN_HOST=0.0.0.0
+
+RUN apk add --no-cache gcc musl-dev linux-headers
+
+COPY requirements.txt requirements.txt
+
+RUN apk update && apk add postgresql-dev gcc python3-dev musl-dev
+RUN pip install psycopg2-binary
+
+
 RUN pip install -r requirements.txt
 
+EXPOSE 5000
 
+COPY . .
 
-# How de display this application on docker instance ?
+RUN chmod +x manage.py
+RUN python manage.py db init; exit 0
+RUN python manage.py db migrate ; exit 0
+#RUN python manage.py db upgrade ; exit 0
 
-# ./start.sh --------------- for create a instance ( or sh ./start.sh)
-# sudo docker ps -a -s for --------------- list a instances
-# docker run -p 80:80 -d docker-flask.dev -------------- if instance is not running
-# visit instance with http://127.0.0.1:80/    # or docker-machine ip
+CMD ["flask", "run"]
 
-# -------------------------------------------------------------------------------
-
-# HELP FOR DOCKER
-# docker system prune
-# docker rmi $(docker images -a -q)
-# docker stop $(docker ps -a -q)
-# docker rm $(docker ps -a -q)
-# docker volume prune
