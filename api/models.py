@@ -50,12 +50,12 @@ class Label(db.Model):
     column = db.Column(db.Integer)
 
 class Record(db.Model):
-    """Model for the Label table"""
+    """Model for the Record table"""
     __tablename__ = 'Record'
 
-    id = db.Column(db.Integer, primary_key = True)
-    title = db.Column(db.Integer)
-    Labels = db.Column(db.Integer)
+    id = db.Column(db.Integer, primary_key = True, autoincrement=True)
+    title = db.Column(db.String(32))
+    labels = db.Column(db.Integer)
 
 #parent_id = db.Column(db.Integer, db.ForeignKey('regions.id'))
 #parent = db.relationship('Region', remote_side=id, primaryjoin=('Region.parent_id==Region.id'), backref='sub-regions')

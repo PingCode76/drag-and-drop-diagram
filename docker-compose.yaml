@@ -20,19 +20,6 @@ services:
     ports: 
       - 5432:5432
 
-  #Client DB for postgres-SQL
-  adminer:
-    container_name: DB-Client
-    image: adminer
-    restart: always
-    ports:
-      - 1000:1000
-    environment:
-      ADMINER_DEFAULT_DB_HOST: root
-      ADMINER_DEFAULT_DB_DRIVER: pgsql
-    #depends_on:
-      #- postgres
-
   # FLASK Configuration
   flask-web-api:
     container_name: flask-api
@@ -42,7 +29,9 @@ services:
     volumes:
         - myVolume:/data
     environment:
-      DATABASE_URL: postgresql://postgres:000000@localhost:5432/bdddragdrop
+      #DATABASE_URL: postgresql://postgres:000000@localhost:5432/bdddragdrop
+      #try this
+      DATABASE_URL: postgresql://postgres:000000@postgres:5432/bdddragdrop
     depends_on:
       - postgres
   
@@ -60,6 +49,19 @@ services:
       - postgres
     environment:
       DATABASE_URL: postgresql://postgres:000000@localhost:5432/bdddragdrop
+  
+        #Client DB for postgres-SQL
+  adminer:
+    container_name: DB-Client
+    image: adminer
+    restart: always
+    ports:
+      - 1000:1000
+    environment:
+      ADMINER_DEFAULT_DB_HOST: root
+      ADMINER_DEFAULT_DB_DRIVER: pgsql
+    #depends_on:
+      #- postgres
 
 volumes:
   myVolume:
