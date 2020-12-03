@@ -4,7 +4,7 @@
         <drop class="copyLabel" @drop="onCopyDropLabel" :accepts-data="(nCol) => nCol === nCol" accepts-type="boolean">
             <span v-for="(nCol, ColumnCol) in Col" :key="ColumnCol">
                 <transition-group name="list" tag="div">
-                    <drag v-for="nColLabel in labelCol" :key="nColLabel" class="labels" :data="nColLabel" @cut="removeCol(nColLabel)">{{nColLabel}}                                   
+                    <drag v-for="nColLabel in labelCol" :key="nColLabel" class="labels" :data="ColumnCol" @cut="removeCol(ColumnCol)">{{nColLabel}}                                   
                       <!-- <p> {{ Col }}</p> --> <!-- tab col "label"-->
                       <p> {{ ColumnCol }}</p> <!-- tab n label in col-->
                       <p> Col</p>
@@ -19,7 +19,7 @@
         <drop class="copyLabel" @drop="onCopyDropLabel1" :accepts-data="(nTra) => nTra === nTra" accepts-type="boolean">
             <span v-for="(nTra, ColumnTra) in Tra" :key="ColumnTra">
                 <transition-group name="list" tag="div">
-                    <drag v-for="nTraLabel in labelTra" :key="nTraLabel" class="labels" :data="nTraLabel" @cut="removeTra(nTraLabel)">{{nTraLabel}}
+                    <drag v-for="nTraLabel in labelTra" :key="nTraLabel" class="labels" :data="nTraLabel" @cut="removeTra(ColumnTra)">{{nTraLabel}}
                       <p> {{ ColumnTra }}</p> <!-- tab n label in Tra-->
                       <p> Tra</p>
                       <input class="node-left" v-model="nodeLTra" placeholder="node L">
@@ -33,7 +33,7 @@
         <drop class="copyLabel" @drop="onCopyDropLabel2" :accepts-data="(nFer) => nFer === nFer" accepts-type="boolean">
             <span v-for="(nFer, ColumnFer) in Fer" :key="ColumnFer">
                 <transition-group name="list" tag="div">
-                    <drag v-for="nFerLabel in labelFer" :key="nFerLabel" class="labels" :data="nFerLabel" @cut="removeFer(nFerLabel)">{{nFerLabel}}
+                    <drag v-for="nFerLabel in labelFer" :key="nFerLabel" class="labels" :data="nFerLabel" @cut="removeFer(ColumnFer)">{{nFerLabel}}
                       <p> {{ ColumnFer }}</p> <!-- tab n label in Fer-->
                       <p> Fer</p>
                       <input class="node-left" v-model="nodeLFer" placeholder="node L">
@@ -62,9 +62,9 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
             labelCol: [""], // label uniq drag !important
             labelTra: [""], // label uniq drag !important
             labelFer: [""], // label uniq drag !important
-            Col: [], // label copied in colum 
-            Tra: [],
-            Fer: [],
+            Col: [], // label copied in Col
+            Tra: [], // label copied in Tra
+            Fer: [], // label copied in Fer
             nodeLCol: '', // data Col
             messageCol: '',
             nodeRCol: '',
@@ -74,55 +74,56 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
             nodeLFer : '', // data Tra 
             messageFer : '',
             nodeRFer : '',
-            CountCol : 0,
+            CountCol : 0, // give a number to a label
             CountTra : 0,
             CountFer : 0,
         }
     },
     methods: {
-      
       onCopyDropLabel(e) {
         this.CountCol = this.CountCol + 1 // Count each label Col
-        this.Col.push(e.data+this.CountCol);
+        this.Col.push(e.data+"Col"+this.CountCol);
 
         console.log(this.Col); // tab many label : name "label1.."
 
-        // info send api feature
-        console.log(this.Col[0]); // title
+        // API info send /AddLabel/title/node1/node2/FunctionNumber/Column for register one label
+        console.log(this.Col[this.Col.length -1 ]); // title element drop // count 
         // node 1
-        // node 2 
-        // fonction number 
-        // column ( col , Tra , Fer)
+        // node 2  
+        console.log("function number")// fonction number 
+        console.log("Col");// column ( col , Tra , Fer)
       },
       onCopyDropLabel1(e) { 
-
         this.CountTra = this.CountTra + 1 // Count each label Tra
-        this.Tra.push(e.data+this.CountTra);
+        this.Tra.push(e.data+"Tra"+this.CountTra);
+
         console.log(this.Tra); // tab many label : name "label"
 
       },
       onCopyDropLabel2(e) {
-
         this.CountFer = this.CountFer + 1 // Count each label Fer
-        this.Fer.push(e.data+this.CountFer);
+        this.Fer.push(e.data+"Fer"+this.CountFer);
+
         console.log(this.Fer); // tab many label : name "label"
 
       },
-      removeCol(nColLabel) {
-        let indexCol = this.labelCol.indexOf(nColLabel);
-
-        // console.log(indexCol);
-        this.Col.splice(indexCol, 1 );
-
-        console.log(this.Col); // tab many label : name "label"
+      removeCol(ColumnCol) {
+        console.log(ColumnCol); // get index 
+        this.Col.splice(ColumnCol, 1); // delete 1 element in tab with index
+        console.log(this.Col);
       },
-      removeTra(nTraLabel) {
-        let indexTra = this.labelTra.indexOf(nTraLabel);
-        this.Tra.splice(indexTra, 1);
+      removeTra(ColumnTra) {
+        console.log(ColumnTra); // get index 
+        this.Tra.splice(ColumnTra, 1); // delete 1 element in tab with index
+        console.log(this.Tra);
       },
-      removeFer(nFerLabel) {
-        let indexFer = this.labelFer.indexOf(nFerLabel);
-        this.Fer.splice(indexFer, 1);
+      removeFer(ColumnFer) {
+        console.log(ColumnFer); // get index 
+        this.Fer.splice(ColumnFer, 1); // delete 1 element in tab with index
+        console.log(this.Fer);
+
+        // let indexFer = this.labelFer.indexOf();
+        //this.Fer.splice(indexFer, 1);
       }
     },
     created: async function(){
