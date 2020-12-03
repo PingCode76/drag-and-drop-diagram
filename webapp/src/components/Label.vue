@@ -4,7 +4,7 @@
         <drop class="copyLabel" @drop="onCopyDropLabel" :accepts-data="(nCol) => nCol === nCol" accepts-type="boolean">
             <span v-for="(nCol, ColumnCol) in Col" :key="ColumnCol">
                 <transition-group name="list" tag="div">
-                    <drag v-for="nColLabel in labelCol" :key="nColLabel" class="labels" :data="nColLabel" @cut="removeCol(nColLabel)">{{nColLabel}}                                   
+                    <drag v-for="nColLabel in labelCol" :key="nColLabel" class="labels" :data="ColumnCol" @cut="removeCol(ColumnCol)">{{nColLabel}}                                   
                       <!-- <p> {{ Col }}</p> --> <!-- tab col "label"-->
                       <p> {{ ColumnCol }}</p> <!-- tab n label in col-->
                       <p> Col</p>
@@ -19,7 +19,7 @@
         <drop class="copyLabel" @drop="onCopyDropLabel1" :accepts-data="(nTra) => nTra === nTra" accepts-type="boolean">
             <span v-for="(nTra, ColumnTra) in Tra" :key="ColumnTra">
                 <transition-group name="list" tag="div">
-                    <drag v-for="nTraLabel in labelTra" :key="nTraLabel" class="labels" :data="nTraLabel" @cut="removeTra(nTraLabel)">{{nTraLabel}}
+                    <drag v-for="nTraLabel in labelTra" :key="nTraLabel" class="labels" :data="nTraLabel" @cut="removeTra(ColumnTra)">{{nTraLabel}}
                       <p> {{ ColumnTra }}</p> <!-- tab n label in Tra-->
                       <p> Tra</p>
                       <input class="node-left" v-model="nodeLTra" placeholder="node L">
@@ -33,7 +33,7 @@
         <drop class="copyLabel" @drop="onCopyDropLabel2" :accepts-data="(nFer) => nFer === nFer" accepts-type="boolean">
             <span v-for="(nFer, ColumnFer) in Fer" :key="ColumnFer">
                 <transition-group name="list" tag="div">
-                    <drag v-for="nFerLabel in labelFer" :key="nFerLabel" class="labels" :data="nFerLabel" @cut="removeFer(nFerLabel)">{{nFerLabel}}
+                    <drag v-for="nFerLabel in labelFer" :key="nFerLabel" class="labels" :data="nFerLabel" @cut="removeFer(ColumnFer)">{{nFerLabel}}
                       <p> {{ ColumnFer }}</p> <!-- tab n label in Fer-->
                       <p> Fer</p>
                       <input class="node-left" v-model="nodeLFer" placeholder="node L">
@@ -89,8 +89,8 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
         // API info send /AddLabel/title/node1/node2/FunctionNumber/Column for register one label
         console.log(this.Col[this.Col.length -1 ]); // title element drop // count 
         // node 1
-        // node 2 
-        // fonction number 
+        // node 2  
+        console.log("function number")// fonction number 
         console.log("Col");// column ( col , Tra , Fer)
       },
       onCopyDropLabel1(e) { 
@@ -107,19 +107,23 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
         console.log(this.Fer); // tab many label : name "label"
 
       },
-      removeCol(nColLabel) {
-        let indexCol = this.labelCol.indexOf(nColLabel);
-        this.Col.splice(indexCol, 1 );
+      removeCol(ColumnCol) {
+        console.log(ColumnCol); // get index 
+        this.Col.splice(ColumnCol, 1); // delete 1 element in tab with index
+        console.log(this.Col);
+      },
+      removeTra(ColumnTra) {
+        console.log(ColumnTra); // get index 
+        this.Tra.splice(ColumnTra, 1); // delete 1 element in tab with index
+        console.log(this.Tra);
+      },
+      removeFer(ColumnFer) {
+        console.log(ColumnFer); // get index 
+        this.Fer.splice(ColumnFer, 1); // delete 1 element in tab with index
+        console.log(this.Fer);
 
-        console.log(this.Col); // tab many label : name "label"
-      },
-      removeTra(nTraLabel) {
-        let indexTra = this.labelTra.indexOf(nTraLabel);
-        this.Tra.splice(indexTra, 1);
-      },
-      removeFer(nFerLabel) {
-        let indexFer = this.labelFer.indexOf(nFerLabel);
-        this.Fer.splice(indexFer, 1);
+        // let indexFer = this.labelFer.indexOf();
+        //this.Fer.splice(indexFer, 1);
       }
     },
     created: async function(){
