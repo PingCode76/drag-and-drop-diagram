@@ -1,13 +1,39 @@
 <template>
   <div class="home">
+
+    <!-- Modal for export data-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <!-- HERE : FORM for save title of record data -->
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!--
+    <br/>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+        Save Data
+      </button>
+  -->
+
     <BaseComponent/>
     <p> {{ APImessageGreeting }}</p>
 
     <div class="drag-left">
-
-      <button type="button" class="btn btn-danger">
-        Export Data
-      </button>
       <h4> Element </h4>
       <hr class="hr-80">
       <!-- -------------------- Export Drag  --------------------   -->
@@ -27,6 +53,12 @@
       </transition-group>
       <hr class="hr-80">
       <!-- end function transition -->
+
+<!--
+      <button type="button" class="btn btn-danger">
+        Import Data
+      </button>
+-->
 
       <!-- -------------------- End Export Drag  --------------------   -->
       

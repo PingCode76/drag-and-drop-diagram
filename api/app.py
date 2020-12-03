@@ -86,8 +86,6 @@ def removeRecord(id):
 
 #TODO: relation Record.labels -> label
 
-# TODO: add btn for export and import ( import with title )
-
 # for create a testData
 @app.route("/createData", methods=['GET'])
 def createData():
