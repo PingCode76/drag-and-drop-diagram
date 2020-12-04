@@ -71,7 +71,7 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
             nodeLTra : '', // data Tra
             messageTra: '',
             nodeRTra : '',
-            nodeLFer : '', // data Tra 
+            nodeLFer : '', // data Tra  
             messageFer : '',
             nodeRFer : '',
             CountCol : 0, // give a number to a label

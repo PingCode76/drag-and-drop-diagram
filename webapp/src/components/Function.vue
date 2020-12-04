@@ -3,7 +3,7 @@
   <drop class="copyFunction" @drop="onCopyDropFunctions" :accepts-data="(f) => f === f" accepts-type="string">
     <span v-for="(f, function1) in copiedFunction" :key="function1">
       <transition-group name="list" tag="div">
-        <drag v-for="f in functions" :key="f" class="function" :data="f" @cut="remove(f)">{{f}}
+        <drag v-for="f in functions" :key="f" class="function" :data="f" @cut="remove(function1)">{{f}}
           <div class="row">
             <div class="function">
               <!-- label Component -->
@@ -44,9 +44,14 @@ import Label from '../components/Label.vue'
 
         console.log(this.copiedFunction);
       },
-      remove(f) {
-        let function1 = this.functions.indexOf(f);
-        this.functions.splice(function1, 1);
+      remove(function1) {
+
+        console.log(function1); // get index 
+        this.copiedFunction.splice(function1, 1); // delete 1 element in tab with index
+        console.log(this.copiedFunction);
+        
+        //let function1 = this.functions.indexOf(f);
+        //this.functions.splice(function1, 1);
       }
     },
     created: async function(){
