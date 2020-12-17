@@ -33,7 +33,7 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
         }
     },
     created: async function(){
-        const gResponse = await fetch("http://localhost:5000/greeting");
+        const gResponse = await fetch("http://localhost:5000/");
         const gObject = await gResponse.json();
         this.APImessageGreeting = gObject.greeting;
     },

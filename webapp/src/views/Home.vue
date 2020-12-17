@@ -101,9 +101,9 @@ import Remove from '../components/Remove.vue'
         }
     },
     created: async function(){
-        const gResponse = await fetch("http://localhost:5000/greeting");
+        const gResponse = await fetch("http://localhost:5000/");
         const gObject = await gResponse.json();
-        this.APImessageGreeting = gObject.greeting;
+        this.APImessageGreeting = gObject.home; // home for {"home":"Welcome to Flask API"}
     },
     methods: {
       onCutDrop(e) {
