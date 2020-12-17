@@ -95,7 +95,7 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
         console.log("function number");
         console.log(this.function1);// fonction number 
         // end function number start test 
-        
+
         console.log("Col");// column ( col , Tra , Fer)
       },
       onCopyDropLabel1(e) { 

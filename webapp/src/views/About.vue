@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <BaseComponent/>
+    <BaseComponent />
     <h5> Drag and Drop Diagram </h5>
 
     <ul>
@@ -14,7 +14,7 @@
 
 <script>
 // @ is an alias to /src
-import BaseComponent from '../components/BaseComponent.vue'
+  import BaseComponent from '../components/BaseComponent.vue'
 
   export default {
     name: 'About',
