@@ -19,17 +19,24 @@ $ pipreqs
 $ pip install -r requirements.txt
 ```
 
-Launch a python server:
+Launch a python server in /api, available in http://127.0.0.1:5000/ :
 
 ```bash
 $ flask run 
 ```
 
-Launch a Vue server with yarn or npm in webapp folder:
+Launch a Vue server with yarn or npm in webapp folder, available in http://localhost:4000/:
 
 ```bash
 $ npm install
 $ npm run serve
+```
+
+or
+
+```bash
+$ yarn install
+$ yarn serve
 ```
 
 ## DataBase
