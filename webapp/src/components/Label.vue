@@ -90,8 +90,12 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
         console.log(this.Col[this.Col.length -1 ]); // title element drop // count 
         // node 1
         // node 2  
+
+        // function number start test 
         console.log("function number");
         console.log(this.function1);// fonction number 
+        // end function number start test 
+        
         console.log("Col");// column ( col , Tra , Fer)
       },
       onCopyDropLabel1(e) { 
@@ -129,7 +133,7 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
     },
     created: async function(){
         // send label with API : /label/title/NodeR/NodeL/Functionnumber/Column
-        const gResponse = await fetch("http://localhost:5000/greeting");
+        const gResponse = await fetch("http://localhost:5000/");
         const gObject = await gResponse.json();
         this.APImessageGreeting = gObject.greeting;
     }
