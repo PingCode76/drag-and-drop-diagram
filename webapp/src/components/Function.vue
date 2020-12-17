@@ -45,11 +45,9 @@ import Label from '../components/Label.vue'
         console.log(this.copiedFunction);
       },
       remove(function1) {
-
         console.log(function1); // get index 
         this.copiedFunction.splice(function1, 1); // delete 1 element in tab with index
         console.log(this.copiedFunction);
-        
         //let function1 = this.functions.indexOf(f);
         //this.functions.splice(function1, 1);
       }

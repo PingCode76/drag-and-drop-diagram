@@ -70,8 +70,8 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
             nodeRCol: '',
             nodeLTra : '', // data Tra
             messageTra: '',
-            nodeRTra : '',
-            nodeLFer : '', // data Tra  
+            nodeRTra : '', 
+            nodeLFer : '', // data Tra 
             messageFer : '',
             nodeRFer : '',
             CountCol : 0, // give a number to a label
@@ -90,7 +90,8 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
         console.log(this.Col[this.Col.length -1 ]); // title element drop // count 
         // node 1
         // node 2  
-        console.log("function number")// fonction number 
+        console.log("function number");
+        console.log(this.function1);// fonction number 
         console.log("Col");// column ( col , Tra , Fer)
       },
       onCopyDropLabel1(e) { 
@@ -98,7 +99,7 @@ import { Drag, Drop, DropMask } from "vue-easy-dnd";
         this.Tra.push(e.data+"Tra"+this.CountTra);
 
         console.log(this.Tra); // tab many label : name "label"
-
+ 
       },
       onCopyDropLabel2(e) {
         this.CountFer = this.CountFer + 1 // Count each label Fer
