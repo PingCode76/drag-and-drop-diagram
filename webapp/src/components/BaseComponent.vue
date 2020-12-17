@@ -1,8 +1,8 @@
 // ./components/BaseComponent.vue
 <script>
   export default {
-	name: 'BaseComponent',
-  props: ['title'],
+    name: 'BaseComponent',
+    props: ['title'],
   }
 </script>
 
@@ -15,7 +15,7 @@
       <router-link to="/about">
         About
       </router-link>
-      <br/><br/><br/><br/>
+      <br><br><br><br>
     </div>
   </div>
 </template>
